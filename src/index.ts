@@ -9,3 +9,5 @@ export {
 } from "./helpers/ProcessServerError";
 
 export type { IUploadedDocument } from "./interfaces/api/advoca/IUploadedDocument";
+
+export { COUNTRIES, POSTAL_CODE } from "./helpers/NorwegianPostalCodes";
