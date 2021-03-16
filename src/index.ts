@@ -8,3 +8,4 @@ export {
   showErrorMessage,
 } from "./helpers/ProcessServerError";
 
+export type { IUploadedDocument } from "./interfaces/api/advoca/IUploadedDocument";
