@@ -1,7 +1,7 @@
 export interface ISaveToDataBase {
     method: string;
     json: string;
-    uuid: string | number | undefined;
+    uuid: string | undefined;
     feedback: IFeedBack;
     url: string;
     origin?: {
