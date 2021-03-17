@@ -8,6 +8,7 @@ export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocumen
 export type { IFeedBack, ISaveToDataBase } from './interfaces/api/advoca/ISaveToDataBase'
 
 export * from './global'
+export * from './interfaces/enums'
 
 export { COUNTRIES, POSTAL_CODE } from './helpers/NorwegianPostalCodes'
 

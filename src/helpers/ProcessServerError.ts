@@ -5,7 +5,7 @@ export function processServerError(error: string | Record<string, any>): void {
 
     let errorMessage = getServerErrorMessage(error)
 
-    if ((window as any).strings?.[errorMessage]) {
+    if ((window as any).strings[errorMessage]) {
         ;(errorMessage = (window as any).strings)[errorMessage]
     }
 
