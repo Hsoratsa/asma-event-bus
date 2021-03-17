@@ -1,17 +1,12 @@
 import { notification } from '../../node_modules/antd/lib/index'
 
-declare global {
-    interface Window {
-        strings: unknown
-    }
-}
 export function processServerError(error: string | Record<string, any>): void {
     console.error(error)
 
     let errorMessage = getServerErrorMessage(error)
 
-    if ((window.strings as any)[errorMessage]) {
-        ;(errorMessage = window.strings as any)[errorMessage]
+    if ((window as any).strings?.[errorMessage]) {
+        ;(errorMessage = (window as any).strings)[errorMessage]
     }
 
     showErrorMessage('Error', errorMessage)
