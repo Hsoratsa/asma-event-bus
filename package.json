@@ -1,23 +1,23 @@
 {
-  "name": "asma-app-lib-helpers",
-  "version": "1.2.10",
-  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
-  "main": "lib/index.js",
-  "types": "lib",
-  "scripts": {
-    "build": "tsc -p ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://avanssoma@dev.azure.com/avanssoma/Arbeidoginkludering/_git/asma-app-lib-helpers"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "typescript": "^4.2.3"
-  },
-  "dependencies": {
-    "antd": "^4.14.0"
-  }
+    "name": "asma-app-lib-helpers",
+    "version": "1.2.11",
+    "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+    "main": "lib/index.js",
+    "types": "lib",
+    "scripts": {
+        "build": "tsc -p ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://avanssoma@dev.azure.com/avanssoma/Arbeidoginkludering/_git/asma-app-lib-helpers"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.2.3"
+    },
+    "dependencies": {
+        "antd": "^4.14.0"
+    }
 }

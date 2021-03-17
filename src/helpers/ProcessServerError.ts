@@ -1,8 +1,8 @@
-import { notification } from "../../node_modules/antd/lib/index"
+import { notification } from '../../node_modules/antd/lib/index'
 
 declare global {
     interface Window {
-        strings:any
+        strings: unknown
     }
 }
 export function processServerError(error: string | Record<string, any>): void {
@@ -10,8 +10,8 @@ export function processServerError(error: string | Record<string, any>): void {
 
     let errorMessage = getServerErrorMessage(error)
 
-    if (window.strings[errorMessage]) {
-        errorMessage = window.strings[errorMessage]
+    if ((window.strings as any)[errorMessage]) {
+        ;(errorMessage = window.strings as any)[errorMessage]
     }
 
     showErrorMessage('Error', errorMessage)
