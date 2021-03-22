@@ -13,7 +13,6 @@ export function processServerError(error: string | Record<string, any>): void {
 }
 
 export function getServerErrorMessage(error: Record<string, any> | string): string {
-    debugger
     if (typeof error == 'string') {
         return error
     } else if (error.data && error.data.Message) {
@@ -26,7 +25,7 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
     else if (error.bodyText) {
         return error.bodyText
     } else if (error.response && error.response.data) {
-        const data = error.response.data?.error ?? error.response.data
+        const data = error.response.data?.error ?? error.response.datauild
 
         if (typeof data == 'string') {
             return data
