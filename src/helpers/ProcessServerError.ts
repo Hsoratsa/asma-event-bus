@@ -1,4 +1,5 @@
-import { notification } from '../../node_modules/antd/lib/index'
+import { notification } from "antd"
+
 
 export function processServerError(error: string | Record<string, any>): void {
     console.error(error)
