@@ -22,3 +22,24 @@ export enum DocProxyStatusTypes {
     /* download = 'download',
     uploaded = 'uploaded' */
 }
+export enum QuestionTypes {
+    BooleanQuestion = 'BooleanQuestion',
+    CheckBoxes = 'CheckBoxes',
+    CompositeQuestion = 'CompositeQuestion',
+    DateField = 'DateField',
+    Dropdown = 'Dropdown',
+    FormatNumber = 'FormatNumber',
+    LinearScale = 'LinearScale',
+    Link = 'Link',
+    RadioButtons = 'RadioButtons',
+    TextLong = 'TextLong',
+    TextShort = 'TextShort',
+    Emoticons = 'Emoticons',
+    DocumentUpload = 'DocumentUpload',
+}
+
+export enum ActorTypes {
+    Mappable = 'mappable',
+    Custom = 'custom',
+    Complex = 'complex',
+}
