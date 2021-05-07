@@ -7,6 +7,7 @@ export * from './helpers/UseOutsideClick';
 export * from './helpers/IsNotEmpty';
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument';
 export type { IFeedBack, ISaveToDataBase } from './interfaces/api/advoca/ISaveToDataBase';
-export * from './global';
 export * from './interfaces/enums';
+export * from './hooks/useWindowWidthSise.hook';
+export * from './global';
 //# sourceMappingURL=index.d.ts.map
