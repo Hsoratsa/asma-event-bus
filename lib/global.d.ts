@@ -1,8 +1,9 @@
 export {};
 declare global {
     interface Window {
-        _env?: Record<string, string | undefined>;
-        _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string | undefined>>;
+        _env?: Record<string, string>;
+        _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string>>;
+        _srvUrls?: Record<string, string>;
         isLogged: boolean;
         logoutUser: () => void;
         wsConnection: any;
