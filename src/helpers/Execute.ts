@@ -1,8 +1,4 @@
-/**
- * for graphql requests
- */
-
-import { processServerError } from './ProcessServerError'
+import { processServerError } from "./ProcessServerError"
 
 export async function executeSRV<R, T = Record<string, string>, V = Record<string, string>>(
     service_url: string,
@@ -17,8 +13,8 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
     }
     let operationName = operation.split('{', 1)?.[0].trim().split(' ')?.[1].trim()
 
-    if(operationName.includes('(')){
-        operationName.split('(',1)[0]
+    if (operationName.includes('(')) {
+        operationName = operationName.split('(', 1)[0]
     }
 
     try {
@@ -40,11 +36,11 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
         const data = await fetchResponse.json()
 
         if (data.errors) {
-            processServerError(data.errors,operationName)
+            processServerError(data.errors, operationName)
         }
         return data
     } catch (e) {
-        processServerError(e,operationName)
+        processServerError(e, operationName)
         return
         //console.error(e)
     }
