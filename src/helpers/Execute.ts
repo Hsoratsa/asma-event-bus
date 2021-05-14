@@ -28,7 +28,12 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
                 variables: variables,
             }),
         })
+
         const data = await fetchResponse.json()
+
+        if (data.errors) {
+            processServerError(data.errors)
+        }
         return data
     } catch (e) {
         processServerError(e)
