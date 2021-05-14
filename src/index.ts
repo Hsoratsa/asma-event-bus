@@ -6,6 +6,7 @@ export * from './helpers/IsAdcuris'
 export * from './helpers/UseOutsideClick'
 export * from './helpers/IsNotEmpty'
 export * from './helpers/Config'
+export * from './helpers/Execute'
 
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument'
 export type { IFeedBack, ISaveToDataBase } from './interfaces/api/advoca/ISaveToDataBase'
