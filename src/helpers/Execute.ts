@@ -15,7 +15,12 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
     if (admin_secret) {
         headers['x-hasura-admin-secret'] = admin_secret
     }
-    const operationName = operation.split('{', 1)[0].trim().split(' ')?.[1].trim()
+    let operationName = operation.split('{', 1)?.[0].trim().split(' ')?.[1].trim()
+
+    if(operationName.includes('(')){
+        operationName.split('(',1)[0]
+    }
+
     try {
         const fetchResponse = await fetch(service_url, {
             method: 'POST',
