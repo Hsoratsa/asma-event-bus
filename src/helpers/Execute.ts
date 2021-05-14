@@ -1,4 +1,4 @@
-import { processServerError } from "./ProcessServerError"
+import { processServerError } from './ProcessServerError'
 
 export async function executeSRV<R, T = Record<string, string>, V = Record<string, string>>(
     service_url: string,
@@ -47,11 +47,16 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
     //console.log('DEBUG: ', JSON.stringify(data));
 }
 
-export function executeFE<R = unknown, T = unknown, K = unknown>(
-    operation: string,
-    service_url: string,
-    variables?: T,
-    headers?: K,
-) {
+export function executeFE<R = unknown, T = unknown, K = unknown>({
+    operation,
+    service_url,
+    variables,
+    headers,
+}: {
+    operation: string
+    service_url: string
+    variables?: T
+    headers?: K
+}) {
     return executeSRV<R, T, K>(service_url, operation, variables, undefined, headers)
 }
