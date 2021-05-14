@@ -2,6 +2,8 @@
  * for graphql requests 
 */
 
+import { processServerError } from "./ProcessServerError"
+
 export async function execute<T=unknown,V=unknown>(
     variables: T,
     operation: string,
@@ -25,7 +27,8 @@ export async function execute<T=unknown,V=unknown>(
         const data = await fetchResponse.json()
         return data
     } catch (e) {
-        console.error(e)
+        processServerError(e)
+        //console.error(e)
     }
     //console.log('DEBUG: ', JSON.stringify(data));
 }
