@@ -1,7 +1,6 @@
-import { notification } from "antd"
+import { notification } from 'antd'
 
-
-export function processServerError(error: string | Record<string, any>): void {
+export function processServerError(error: string | Record<string, any>, operationName?: string): void {
     console.error(error)
 
     let errorMessage = getServerErrorMessage(error)
@@ -10,7 +9,7 @@ export function processServerError(error: string | Record<string, any>): void {
         ;(errorMessage = (window as any).strings)[errorMessage]
     } */
 
-    showErrorMessage('Error', errorMessage)
+    showErrorMessage(operationName || 'Error', errorMessage)
 }
 
 export function getServerErrorMessage(error: Record<string, any> | string): string {
