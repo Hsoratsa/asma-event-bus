@@ -1,8 +1,8 @@
 import { FC } from "react";
 export declare function createInjectableContext<T>(): {
     StoreProvider: FC<{
-        root_store: T;
+        main_store: T;
     }>;
-    useDashboardRootStore: () => T;
+    useStore: () => T;
 };
 //# sourceMappingURL=CreateInjectableContext.d.ts.map
