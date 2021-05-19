@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
 export declare function createInjectableContext<T>(): {
     StoreProvider: FC<{
-        main_store: T;
+        store: T;
     }>;
     useStore: () => T;
 };

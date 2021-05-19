@@ -1,10 +1,10 @@
-import { createContext, FC, useContext } from "react"
+import { createContext, FC, useContext } from 'react'
 
 export function createInjectableContext<T>() {
     const storeContext = createContext<T | null>(null)
 
-    const StoreProvider: FC<{ main_store: T }> = ({ children, main_store }) => {
-        return <storeContext.Provider value={main_store}>{children}</storeContext.Provider>
+    const StoreProvider: FC<{ store: T }> = ({ children, store }) => {
+        return <storeContext.Provider value={store}>{children}</storeContext.Provider>
     }
 
     /* const StoreProvider: FC = ({ children }) => (
