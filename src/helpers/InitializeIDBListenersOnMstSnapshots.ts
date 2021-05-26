@@ -26,7 +26,7 @@ async function checkForIDBData<T>(main_store: T) {
     await myPromiseAllSettled(promises)
 }
 
-export function initiatieIDBListenersOnSnaphsots<T, K extends keyof T>(store: T, omit: K[] = []) {
+export function initiatieIDBListenersOnMstSnaphsots<T, K extends keyof T>(store: T, omit: K[] = []) {
     setIDBListenersOnSnapshots(store, omit)
 
     return checkForIDBData(store)
