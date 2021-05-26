@@ -1,0 +1,47 @@
+import { del, get, set } from 'idb-keyval'
+import { applySnapshot, onSnapshot } from 'mobx-state-tree'
+function setIDBListenersOnSnapshots<T, K extends keyof T>(store: T, omit: K[] = []) {
+    const keys = (Object.keys(store) as Array<keyof typeof store>).filter((k) => !omit.includes(k as K))
+
+    keys.forEach((key) => {
+        if (typeof store[key] === 'object') {
+            onSnapshot(store[key], (snapshot) => {
+                set(String(key), snapshot).catch((e) => console.error(e))
+            })
+        }
+    })
+}
+
+async function checkForIDBData<T>(main_store: T) {
+    const keys = Object.keys(main_store) as Array<keyof typeof main_store>
+
+    const stores_promises: Promise<void>[] = []
+
+    const promises: Promise<void>[] = keys.reduce((acc, key) => {
+        if (typeof main_store[key] === 'object') acc.push(applySnapshotOnResolvedIDBGetPromise(key, main_store))
+
+        return acc
+    }, stores_promises)
+
+    await Promise.allSettled(promises)
+}
+
+export function initiatieIDBListenersOnSnaphsots<T, K extends keyof T>(store: T, omit: K[] = []) {
+    setIDBListenersOnSnapshots(store, omit)
+
+    return checkForIDBData(store)
+}
+
+async function applySnapshotOnResolvedIDBGetPromise<T>(key: keyof T, main_store: T): Promise<void> {
+    try {
+        const res = await get(String(key))
+
+        if (res) {
+            applySnapshot(main_store[key], res)
+        }
+    } catch (e) {
+        del(String(key))
+
+        console.error(`resolveIDBGetPromise, ${key}:`, e)
+    }
+}
