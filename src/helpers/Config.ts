@@ -12,7 +12,7 @@ export function config<T>(env_var: string, default_value: T): T {
     }
 
     if (isLocalDev) {
-        return ((window._env?.[`REACT_APP_${env_var}`] as unknown) as T) ?? default_value
+        return ((window.__ENV?.[`REACT_APP_${env_var}`] as unknown) as T) ?? default_value
     }
 
     if (!window._env_cloud?.[connector]) {

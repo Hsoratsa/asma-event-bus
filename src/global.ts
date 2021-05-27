@@ -2,7 +2,7 @@ export {}
 
 declare global {
     interface Window {
-        _env?: Record<string, string>
+        __ENV?: Record<string, string>
         _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string>>
         _srvUrls?: Record<string, string>
 
