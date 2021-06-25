@@ -1,3 +1,4 @@
+import { getGqlOperationName } from './getGqlOperationName'
 import { processServerError } from './ProcessServerError'
 
 export async function executeSRV<R, T = Record<string, string>, V = Record<string, string>>(
@@ -5,26 +6,25 @@ export async function executeSRV<R, T = Record<string, string>, V = Record<strin
     operation: string,
     variables?: T,
     admin_secret?: string,
-    session_variables?: V,
+    headers?: V,
 ): Promise<R | undefined> {
-    const headers: Record<string, string> = {}
+    
+    const local_headers: Record<string, string> = {}
+    
     if (admin_secret) {
-        headers['x-hasura-admin-secret'] = admin_secret
+        local_headers['x-hasura-admin-secret'] = admin_secret
     }
-    let operationName = operation.split('{', 1)?.[0].trim().split(' ')?.[1].trim()
 
-    if (operationName.includes('(')) {
-        operationName = operationName.split('(', 1)[0]
-    }
+    let operationName = getGqlOperationName(operation)
 
     try {
         const fetchResponse = await fetch(service_url, {
             method: 'POST',
             headers: {
-                ...headers,
+                ...local_headers,
                 'content-encoding': 'gzip',
                 'Content-Type': 'application/json',
-                ...session_variables,
+                ...headers,
             },
             body: JSON.stringify({
                 operationName,

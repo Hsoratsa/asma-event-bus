@@ -32,7 +32,7 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
         } else if (data.constructor === Object) {
             const keys = Object.keys(data)
 
-            if (keys.length) {
+            if (keys[0]) {
                 const objKey = keys[0]
 
                 if (data[objKey]['message']) {
@@ -44,7 +44,7 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
                 } else if (data[objKey].constructor === Object) {
                     const childKeys = Object.keys(data[objKey])
 
-                    if (childKeys.length) {
+                    if (childKeys[0]) {
                         const objKey2 = childKeys[0]
 
                         return `${objKey2}: ${data[objKey][objKey2]}`

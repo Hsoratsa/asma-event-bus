@@ -1,11 +1,13 @@
 import { del, get, set } from 'idb-keyval'
-import { applySnapshot, onSnapshot } from 'mobx-state-tree'
+import { applySnapshot, onSnapshot,isStateTreeNode } from 'mobx-state-tree'
 function setIDBListenersOnSnapshots<T, K extends keyof T>(store: T, omit: K[] = []) {
     const keys = (Object.keys(store) as Array<keyof typeof store>).filter((k) => !omit.includes(k as K))
 
     keys.forEach((key) => {
-        if (typeof store[key] === 'object') {
-            onSnapshot(store[key], (snapshot) => {
+        const mst_node = store[key]
+        
+        if (isStateTreeNode(mst_node)) {
+            onSnapshot(mst_node, (snapshot) => {
                 set(String(key), snapshot).catch((e) => console.error(e))
             })
         }

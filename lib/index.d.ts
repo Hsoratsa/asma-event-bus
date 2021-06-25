@@ -9,6 +9,7 @@ export * from './helpers/Config';
 export * from './helpers/Execute';
 export * from './helpers/CreateInjectableContext';
 export * from './helpers/InitializeIDBListenersOnMstSnapshots';
+export * from './helpers/getGqlOperationName';
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument';
 export type { IFeedBack, ISaveToDataBase } from './interfaces/api/advoca/ISaveToDataBase';
 export * from './interfaces/enums';
