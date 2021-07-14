@@ -1,8 +1,20 @@
-export declare function executeSRV<R, T = Record<string, string>, V = Record<string, string>>(service_url: string, operation: string, variables?: T, admin_secret?: string, headers?: V): Promise<R | undefined>;
-export declare function executeFE<R = unknown, T = unknown, K = unknown>({ operation, service_url, variables, headers, }: {
-    operation: string;
+/**
+ * Method return always resolved promise it handels cases when there is a gql error or a request/system error
+ *
+ *
+ * @param service_url url where shall be perfomrmed request
+ * @param operation qraphQl query
+ * @param variables
+ * @param admin_secret
+ * @param headers
+ * @returns T|undefined
+ */
+interface IExecuteFe {
     service_url: string;
-    variables?: T;
-    headers?: K;
-}): Promise<R | undefined>;
+    operation: string;
+    variables?: Record<string, unknown>;
+    headers?: Record<string, string>;
+}
+export declare function executeFE<R>({ headers, service_url, operation, variables, }: IExecuteFe): Promise<R | undefined>;
+export {};
 //# sourceMappingURL=Execute.d.ts.map

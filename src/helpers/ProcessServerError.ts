@@ -29,7 +29,7 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
 
         if (typeof data == 'string') {
             return data
-        } else if (data.constructor === Object) {
+        } else if (data?.constructor === Object) {
             const keys = Object.keys(data)
 
             if (keys[0]) {
