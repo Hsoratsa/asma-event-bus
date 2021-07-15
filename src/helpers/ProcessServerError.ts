@@ -25,7 +25,7 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
     else if (error.bodyText) {
         return error.bodyText
     } else if (error.response && error.response.data) {
-        const data = error.response.data?.error ?? error.response.datauild
+        const data = error.response.data?.error ?? error.response.data
 
         if (typeof data == 'string') {
             return data
