@@ -1,7 +1,11 @@
-import { srvAuthGet } from "../clients/srvAuth"
+
+import { http } from "../utility/fetch"
 import { parseJwt } from "./parseJwt"
 
-export function jwtInit() {
+export function jwtInit(srv_auth: string) {
+    if(!srv_auth){
+        throw new Error('srv_auth is missing! Prlease provide a valid srv_auth base url!')
+    }
     let jwtToken = ''
 
     let fetchJwtPromise: Promise<{
@@ -10,6 +14,12 @@ export function jwtInit() {
 
     function setJwtToken(token: string) {
         jwtToken = token
+    }
+
+    async function srvAuthGet<R>(url: string, headers?: Headers) {
+        return http<R>(`${srv_auth}${url}`,{
+            headers
+        }) 
     }
 
     function accessTokenHasExpired(): boolean {
@@ -27,7 +37,7 @@ export function jwtInit() {
         return !(jwtToken && accessTokenHasExpired() || !jwtToken)
     }
     async function getJwtTokenAndValidate() {
-        if (isJwtValid()) {
+        if (!isJwtValid()) {
             const new_jwt = await getNewJwtToken()
 
             return new_jwt
@@ -38,7 +48,7 @@ export function jwtInit() {
     async function getNewJwtToken() {
         try {
             if (!fetchJwtPromise) {
-                fetchJwtPromise = srvAuthGet('/token') /* axios.get(`${EnvConfigs.SRV_AUTH}/token`, {
+                fetchJwtPromise = srvAuthGet(`/token`) /* axios.get(`${EnvConfigs.SRV_AUTH}/token`, {
                     withCredentials: true,
                 }) */
             }
