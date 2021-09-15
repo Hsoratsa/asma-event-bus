@@ -21,6 +21,9 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
     if (Array.isArray(error)) {
         return getArrayErrorsMessage(error)
     }
+    if(Array.isArray(error?.errors)){
+        return getArrayErrorsMessage(error.errors)
+    }
     //graphql
     else if (error.bodyText) {
         return error.bodyText

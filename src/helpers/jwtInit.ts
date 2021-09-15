@@ -6,7 +6,7 @@ export function jwtInit(srv_auth: string) {
     if(!srv_auth){
         throw new Error('srv_auth is missing! Prlease provide a valid srv_auth base url!')
     }
-    let jwtToken = ''
+    let jwtToken:string|null = null
 
     let fetchJwtPromise: Promise<{
         data: { message: string; token?: string; errors: { message: string }[] }
@@ -17,8 +17,16 @@ export function jwtInit(srv_auth: string) {
     }
 
     async function srvAuthGet<R>(url: string, headers?: Headers) {
+
+        let credentials:'include'|'same-origin' = 'same-origin'
+
+        if(window.__ENV?.['DEVELOPMENT']){
+            credentials = 'include'
+        }
+        
         return http<R>(`${srv_auth}${url}`,{
-            headers
+            headers,
+            credentials,
         }) 
     }
 
