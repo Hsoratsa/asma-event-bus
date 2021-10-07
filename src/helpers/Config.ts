@@ -24,3 +24,19 @@ export function config<T>(env_var: string, default_value: T): T {
 
     return ((window._env_cloud[connector]?.[env_var] as unknown) as T) ?? default_value
 }
+
+export function configWeb<T>(env_var: string, default_value: T): T {
+    if (env_var.startsWith('SRV')) {
+        const env_name = env_var.replace('SRV_', '').toLowerCase()
+
+        if (window._srvUrls?.[env_name]) {
+            return (window._srvUrls[env_name] as unknown) as T
+        }
+    }
+
+    return ((window.__ENV?.[env_var] as unknown) as T) ?? default_value
+}
+
+export function httpToWs(url: string) {
+    return url.replace('http', 'ws').replace('https', 'wss')
+}
