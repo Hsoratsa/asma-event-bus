@@ -43,3 +43,10 @@ export enum ActorTypes {
     Custom = 'custom',
     Complex = 'complex',
 }
+
+export enum EnvironmentEnums {
+    local = 'local',
+    dev = 'dev',
+    test = 'test',
+    stage = 'stage',
+}

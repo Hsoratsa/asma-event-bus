@@ -38,4 +38,10 @@ export declare enum ActorTypes {
     Custom = "custom",
     Complex = "complex"
 }
+export declare enum EnvironmentEnums {
+    local = "local",
+    dev = "dev",
+    test = "test",
+    stage = "stage"
+}
 //# sourceMappingURL=enums.d.ts.map
