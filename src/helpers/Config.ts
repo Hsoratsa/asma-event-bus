@@ -1,19 +1,11 @@
 
-export function config<T>(env_var: string, default_value: T): T {
+export function config(env_var: string, default_value: string|boolean) {
     const connector = window.location.host.includes('adopus') ? 'adopus' : 'adcuris'
 
-    const isLocalDev = window.location.host.includes('localhost')
+    const srv_url = getSrvUrl(env_var)
 
-    if (env_var.startsWith('SRV')) {
-        const env_name = env_var.replace('SRV_', '').toLowerCase()
-
-        if (window._srvUrls?.[env_name]) {
-            return (window._srvUrls[env_name] as unknown) as T
-        }
-    }
-
-    if (isLocalDev) {
-        return ((window.__ENV?.[`REACT_APP_${env_var}`] as unknown) as T) ?? default_value
+    if(srv_url){
+        return srv_url
     }
 
     if (!window._env_cloud?.[connector]) {
@@ -23,22 +15,30 @@ export function config<T>(env_var: string, default_value: T): T {
         )
     }
 
-    return ((window._env_cloud[connector]?.[env_var] as unknown) as T) ?? default_value
+    return window._env_cloud[connector]?.[env_var] ?? default_value
 }
 
-export function configWeb<T>(env_var: string, default_value: T): T {
+export function configWeb(env_var: string, default_value: string|boolean) {
+    const srv_url =getSrvUrl(env_var)
+
+    if(srv_url){
+        return srv_url
+    }
+
+    return window.__ENV?.[env_var] ?? default_value
+}
+
+function getSrvUrl(env_var:string){
     if (env_var.startsWith('SRV')) {
         const env_name = env_var.replace('SRV_', '').toLowerCase()
 
-        if (window._srvUrls?.[env_name]) {
-            return (window._srvUrls[env_name] as unknown) as T
+        const srv_url = window._srvUrls?.[env_name]
+        if (srv_url) {
+            return  srv_url
         }
     }
-
-    return ((window.__ENV?.[env_var] as unknown) as T) ?? default_value
+    return 
 }
-
-
 
 export function httpToWs(url: string) {
     return url.replace('http', 'ws').replace('https', 'wss')

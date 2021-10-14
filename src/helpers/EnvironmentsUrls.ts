@@ -51,7 +51,7 @@ const EnvironmentsUrls = {
 
 export function environmentUrls(){
 
-    const env:EnvironmentEnums = configWeb('ENVIRONMENT_TO_OPERATE','no_env' as EnvironmentEnums) 
+    const env = configWeb('ENVIRONMENT_TO_OPERATE','no_env') as EnvironmentEnums
     
-    return env !== "no_env" && EnvironmentsUrls[env] || undefined
+    return env !== "no_env" && window.__ENV?.['DEVELOPMENT'] && EnvironmentsUrls[env] || undefined
 }
