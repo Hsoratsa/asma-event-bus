@@ -12,6 +12,7 @@ export * from './helpers/InitializeIDBListenersOnMstSnapshots'
 export * from './helpers/getGqlOperationName'
 export * from './helpers/jwtInit'
 export * from './helpers/parseJwt'
+export * from './helpers/EnvironmentsUrls'
 
 export * from './utility/fetch'
 

@@ -42,6 +42,8 @@ export declare enum EnvironmentEnums {
     local = "local",
     dev = "dev",
     test = "test",
-    stage = "stage"
+    stage = "stage",
+    prod = "prod",
+    no_env = "no_env"
 }
 //# sourceMappingURL=enums.d.ts.map

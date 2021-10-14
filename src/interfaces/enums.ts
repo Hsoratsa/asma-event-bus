@@ -49,4 +49,6 @@ export enum EnvironmentEnums {
     dev = 'dev',
     test = 'test',
     stage = 'stage',
+    prod = 'prod',
+    no_env = 'no_env'
 }
