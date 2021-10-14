@@ -1,11 +1,13 @@
 
-export function config(env_var: string, default_value: string|boolean) {
+type ObjectType<T> = T extends string ?string :T extends boolean ? boolean :never
+
+export function config<T>(env_var: string, default_value: T): ObjectType<T> {
     const connector = window.location.host.includes('adopus') ? 'adopus' : 'adcuris'
 
     const srv_url = getSrvUrl(env_var)
 
     if(srv_url){
-        return srv_url
+        return srv_url as ObjectType<T>
     }
 
     if (!window._env_cloud?.[connector]) {
@@ -15,17 +17,17 @@ export function config(env_var: string, default_value: string|boolean) {
         )
     }
 
-    return window._env_cloud[connector]?.[env_var] ?? default_value
+    return (window._env_cloud[connector]?.[env_var] ?? default_value) as ObjectType<T>
 }
 
-export function configWeb(env_var: string, default_value: string|boolean) {
+export function configWeb<T>(env_var: string, default_value: T):ObjectType<T> {
     const srv_url =getSrvUrl(env_var)
 
     if(srv_url){
-        return srv_url
+        return srv_url as ObjectType<T>
     }
 
-    return window.__ENV?.[env_var] ?? default_value
+    return  (window.__ENV?.[env_var] ?? default_value) as ObjectType<T>
 }
 
 function getSrvUrl(env_var:string){
@@ -39,7 +41,6 @@ function getSrvUrl(env_var:string){
     }
     return 
 }
-
 export function httpToWs(url: string) {
     return url.replace('http', 'ws').replace('https', 'wss')
 }
