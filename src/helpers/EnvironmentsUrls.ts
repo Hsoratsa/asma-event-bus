@@ -1,15 +1,7 @@
-import { EnvironmentEnums } from ".."
+import { configWeb, EnvironmentEnums } from ".."
 
 const EnvironmentsUrls = {
-    no_env: {
-        SRV_DIRECTORY: null,
-        SRV_CALENDAR: null,
-        SRV_PROXY: null,
-        SRV_STORAGE: null,
-        SRV_CHAT: null,
-        SRV_CONNECTOR: null,
-        SRV_ARTIFACT: null,
-    },
+    
     local: {
         SRV_DIRECTORY: 'http://localhost:7001',
         SRV_CALENDAR: 'http://localhost:7011',
@@ -57,6 +49,9 @@ const EnvironmentsUrls = {
     },
 }
 
-export function environmentUrls(env?:EnvironmentEnums){
-    return env && EnvironmentsUrls[env] 
+export function environmentUrls(){
+
+    const env:EnvironmentEnums = configWeb('ENVIRONMENT_TO_OPERATE','no_env' as EnvironmentEnums) 
+    
+    return env !== "no_env" && EnvironmentsUrls[env] || undefined
 }

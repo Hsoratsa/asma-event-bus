@@ -58,7 +58,7 @@ export async function executeFE<R>({
         }
 
         return data
-    } catch (e) {
+    } catch (e:any) {
         processServerError(e, operationName)
 
         return
