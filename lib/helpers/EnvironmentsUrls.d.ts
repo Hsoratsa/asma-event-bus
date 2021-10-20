@@ -6,5 +6,6 @@ export declare function environmentUrls(): {
     SRV_CHAT: string;
     SRV_CONNECTOR: string;
     SRV_ARTIFACT: string;
+    SRV_ADVOCA: string;
 } | undefined;
 //# sourceMappingURL=EnvironmentsUrls.d.ts.map
