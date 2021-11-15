@@ -1,6 +1,6 @@
 {
     "name": "asma-app-lib-helpers",
-    "version": "1.5.13",
+    "version": "1.5.16",
     "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
     "main": "lib/index.js",
     "types": "lib",
@@ -16,11 +16,11 @@
     "license": "MIT",
     "devDependencies": {
         "@types/react": "^17.0.3",
-        "typescript": "^4.2.3"
+        "typescript": "^4.4.4"
     },
     "dependencies": {
         "antd": "^4.14.1",
-        "asma-genql-directory": "^1.0.9",
+        "asma-genql-directory": "^1.0.25",
         "idb-keyval": "^5.0.5",
         "mobx": "^6.3.2",
         "mobx-state-tree": "^5.0.1",
