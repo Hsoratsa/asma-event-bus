@@ -18,10 +18,11 @@ export function userTypingSignal(insertUserLastTyped: () => Promise<unknown>) {
                     window.clearInterval(timmer)
 
                     timmer = undefined
+                    return
                 }
 
                 insertUserLastTyped()
-            }, 1400)
+            }, 1600)
         }
     }
     function userIsTyping() {
@@ -29,7 +30,7 @@ export function userTypingSignal(insertUserLastTyped: () => Promise<unknown>) {
             return false
         }
 
-        return last_typed > Date.now() - 3 * 1000
+        return last_typed > Date.now() - 2 * 1000
     }
 
     return {
