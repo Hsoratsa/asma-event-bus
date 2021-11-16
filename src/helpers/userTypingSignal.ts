@@ -14,7 +14,7 @@ export function userTypingSignal(insertUserLastTyped: () => Promise<unknown>) {
 
         if (userIsTyping()) {
             timmer = window.setInterval(() => {
-                if (userIsTyping()) {
+                if (!userIsTyping()) {
                     window.clearInterval(timmer)
 
                     timmer = undefined
@@ -28,7 +28,6 @@ export function userTypingSignal(insertUserLastTyped: () => Promise<unknown>) {
         if (!last_typed) {
             return false
         }
-        console.log(last_typed, new Date(Date.now() - 3 * 1000))
 
         return last_typed > Date.now() - 3 * 1000
     }
