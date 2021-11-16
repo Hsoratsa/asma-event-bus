@@ -14,6 +14,7 @@ export * from './helpers/jwtInit';
 export * from './helpers/parseJwt';
 export * from './helpers/EnvironmentsUrls';
 export * from './helpers/EnvironmentToOperateTypes';
+export * from './helpers/userTypingSignal';
 export * from './utility/fetch';
 export * from './clients/srvAuth';
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument';
