@@ -48,10 +48,10 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@genql/runtime@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@genql/runtime/-/runtime-2.6.0.tgz#7942e7b48fe74f38bdff47da2ac6cae205258fe5"
-  integrity sha512-AqkFwApU3W0G8jbAiPrAS+7KYxSnFB/4gCN1BPkcKBLa2Y58jATLHSt5FNY+I18xF9M7rlLcCaM9T8ZCtCoMCw==
+"@genql/runtime@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@genql/runtime/-/runtime-2.8.0.tgz#5a3fb37db738a1624a111eb6fd16886a6704a259"
+  integrity sha512-YR8adZF9BuA7hdC5fKqTqnyMIRnYzoWntg2qtkz508QJ1U5Gn1fNp9K13i0r92V/jfTy+vD1tStK5Oqg8hI9SQ==
   dependencies:
     "@types/qs" "^6.9.0"
     "@types/ws" "^6.0.1"
@@ -153,12 +153,12 @@ array-tree-filter@^2.1.0:
   resolved "https://registry.yarnpkg.com/array-tree-filter/-/array-tree-filter-2.1.0.tgz#873ac00fec83749f255ac8dd083814b4f6329190"
   integrity sha512-4ROwICNlNw/Hqa9v+rk5h22KjmzB1JGTMVKP2AKJBOCgb0yL0ASf0+YvCcLNNwquOHNX48jkeZIJ3a+oOQqKcw==
 
-asma-genql-directory@^1.0.25:
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/asma-genql-directory/-/asma-genql-directory-1.0.25.tgz#fca155d272c3ea6df7116f7eb101ad60fd09bed2"
-  integrity sha512-mjaxGsleGHHWQGanszUjFevmXm6Qql52+Sq1j8vP8R5CSnUWnbRXr0bUXRw8l0gtuDukuC1m2vMIbrrms6FsEw==
+asma-genql-directory@^1.0.29:
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/asma-genql-directory/-/asma-genql-directory-1.0.29.tgz#48691a889cc3b13bd33e7efe8a7550b59ba70772"
+  integrity sha512-j2loNIoxTunGrDJ6oIfqRirN3iCSM8QSOoumTn78GE5KTVtrNGicKHniW2zJUVrQtqCn0qXQJflzIom9tED2qQ==
   dependencies:
-    "@genql/runtime" "^2.6.0"
+    "@genql/runtime" "^2.8.0"
     graphql "^15.5.1"
 
 async-limiter@~1.0.0:
@@ -170,6 +170,13 @@ async-validator@^3.0.3:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
   integrity sha512-DDmKA7sdSAJtTVeNZHrnr2yojfFaoeW8MfQN8CeuXg8DDQHTqKk9Fdv38dSvnesHoO8MUwMI2HphOeSyIF+wmQ==
+
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+  dependencies:
+    follow-redirects "^1.14.4"
 
 backo2@^1.0.2:
   version "1.0.2"
@@ -212,6 +219,11 @@ eventemitter3@^3.1.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
+
+follow-redirects@^1.14.4:
+  version "1.14.5"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
+  integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==
 
 graphql-query-batcher@^1.0.1:
   version "1.0.1"
