@@ -1,11 +1,16 @@
+import { IBaseJwtClaims } from "asma-genql-directory/lib"
 import axios, { AxiosResponse } from "axios"
-import { EnvironmentEnums, ITherapistOrSuperUserJwtClaims } from ".."
+import { EnvironmentEnums, parseJwt } from ".."
 
 export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums) {
     let jwtToken = ''
-
+    
     let fetchJwtPromise: Promise<{ data: { message: string; token?: string; errors: { message: string }[] } }> | null =
-        null
+    null
+    
+    const isJwtInvalid = ()=> (jwtToken && accessTokenHasExpired()) || !jwtToken
+    
+    const isJwtValid = () => !isJwtInvalid
 
     async function srvAuthGet<R>(url: string, headers?: Record<string, string>) {
         if (DEVELOPMENT && ENVIRONMENT_TO_OPERATE) {
@@ -33,7 +38,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         const { data } = await srvAuthGet<{ token: string }>(url, headers)
 
         setJwtToken(data.token)
-
+        
         return data
     }
 
@@ -53,7 +58,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
     }
 
     async function getJwtTokenAsync() {
-        if ((jwtToken && accessTokenHasExpired()) || !jwtToken) {
+        if (isJwtInvalid()) {
             const new_jwt = await getNewJwtToken()
 
             return new_jwt
@@ -92,12 +97,16 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         }
     }
 
-    function getParsedJwt(): ITherapistOrSuperUserJwtClaims | undefined {
-        return parseJwt(jwtToken)
+
+
+    function getParsedJwt<R=IBaseJwtClaims>(): R|undefined {
+        return parseJwt<R>(jwtToken)
     }
 
     return {
+        isJwtValid,
         signin,
+        srvAuthGet,
         signoutAuth,
         getJwtTokenAsync,
         getNewJwtToken,
@@ -108,12 +117,3 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
     }
 }
 
-export function parseJwt(jwtToken: string): ITherapistOrSuperUserJwtClaims | undefined {
-    const base64Url = jwtToken?.split('.')[1]
-
-    if (base64Url === undefined) {
-        return {} as ITherapistOrSuperUserJwtClaims
-    }
-
-    return JSON.parse(window.atob(base64Url))
-}

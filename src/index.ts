@@ -10,11 +10,11 @@ export * from './helpers/Execute'
 export * from './helpers/CreateInjectableContext'
 export * from './helpers/InitializeIDBListenersOnMstSnapshots'
 export * from './helpers/getGqlOperationName'
-export * from './helpers/jwtInit'
 export * from './helpers/parseJwt'
 export * from './helpers/EnvironmentsUrls'
 export * from './helpers/EnvironmentToOperateTypes'
 export * from './helpers/userTypingSignal'
+export * from './helpers/generateSrvAuthBindings'
 
 export * from './utility/fetch'
 
@@ -22,7 +22,7 @@ export * from './clients/srvAuth'
 
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument'
 export type { IFeedBack, ISaveToDataBase } from './interfaces/api/advoca/ISaveToDataBase'
-export * from './interfaces/jwtClaims'
+
 export * from './interfaces/enums'
 
 export * from './hooks/useWindowWidthSise.hook'
