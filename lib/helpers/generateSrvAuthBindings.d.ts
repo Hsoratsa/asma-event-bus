@@ -1,7 +1,7 @@
 import { IBaseJwtClaims } from "asma-genql-directory/lib";
 import { AxiosResponse } from "axios";
 import { EnvironmentEnums } from "..";
-export declare function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums): {
+export declare function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?: () => void): {
     isJwtValid: () => boolean;
     signin: (url: string, headers?: Record<string, string> | undefined) => Promise<{
         token: string;
