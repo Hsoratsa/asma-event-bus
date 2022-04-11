@@ -44,7 +44,6 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
 
     async function signoutAuth() {
         setJwtToken('')
-        logout
         await srvAuthGet('/signout')
     }
     function getUserId(): string {
@@ -77,7 +76,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
             const { data } = await fetchJwtPromise
 
             if (!data || data.errors || data.message != 'Success') {
-                signoutAuth()
+                logout?.() || signoutAuth()
             }
             if (!data.token) {
                 throw new Error('Token is not present in the result')
@@ -88,7 +87,8 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
 
             return jwtToken
         } catch (error) {
-            signoutAuth()
+            logout?.() || signoutAuth()
+            //signoutAuth()
 
             fetchJwtPromise = null
 
