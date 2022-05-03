@@ -2,7 +2,7 @@ import { IBaseJwtClaims } from "asma-genql-directory/lib"
 import axios, { AxiosResponse } from "axios"
 import { EnvironmentEnums, parseJwt } from ".."
 
-export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums) {
+export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?:() => void) {
     let jwtToken = ''
     
     let fetchJwtPromise: Promise<{ data: { message: string; token?: string; errors: { message: string }[] } }> | null =
@@ -76,7 +76,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
             const { data } = await fetchJwtPromise
 
             if (!data || data.errors || data.message != 'Success') {
-                signoutAuth()
+                logout?.() || signoutAuth()
             }
             if (!data.token) {
                 throw new Error('Token is not present in the result')
@@ -87,7 +87,8 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
 
             return jwtToken
         } catch (error) {
-            signoutAuth()
+            logout?.() || signoutAuth()
+            //signoutAuth()
 
             fetchJwtPromise = null
 
