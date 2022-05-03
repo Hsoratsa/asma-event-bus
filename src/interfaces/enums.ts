@@ -37,6 +37,7 @@ export enum QuestionTypes {
     Emoticons = 'Emoticons',
     DocumentUpload = 'DocumentUpload',
     Readonly = 'Readonly',
+    ExpressionQuestion = 'ExpressionQuestion'
 }
 
 export enum ActorTypes {
