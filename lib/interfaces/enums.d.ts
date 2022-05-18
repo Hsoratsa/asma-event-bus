@@ -33,7 +33,8 @@ export declare enum QuestionTypes {
     Emoticons = "Emoticons",
     DocumentUpload = "DocumentUpload",
     Readonly = "Readonly",
-    ExpressionQuestion = "ExpressionQuestion"
+    ExpressionQuestion = "ExpressionQuestion",
+    Chart = "Chart"
 }
 export declare enum ActorTypes {
     Mappable = "mappable",
