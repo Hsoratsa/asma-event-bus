@@ -12,6 +12,7 @@ const EnvironmentsUrls = {
         SRV_ARTIFACT: '',
         SRV_ADVOCA: 'http://localhost:4433',
         SRV_PROXY: 'http://localhost:7003',
+        SRV_NOTIFICATION: 'http://localhost:7002',
     },
     dev: {
         SRV_DIRECTORY: 'https://dev.adopus.no/api/directory',
@@ -23,6 +24,7 @@ const EnvironmentsUrls = {
         SRV_ARTIFACT: '',
         SRV_ADVOCA: 'https://dev.advoca.no/api/service',
         SRV_PROXY: 'https://dev.adopus.no/api/srvproxy',
+        SRV_NOTIFICATION: 'https://dev.adopus.no/api/notification',
     },
     test: {
         SRV_DIRECTORY: 'https://test.adopus.no/api/directory',
@@ -34,6 +36,7 @@ const EnvironmentsUrls = {
         SRV_ARTIFACT: '',
         SRV_ADVOCA: 'https://test.advoca.no/api/service',
         SRV_PROXY: 'https://test.adopus.no/api/srvproxy',
+        SRV_NOTIFICATION: 'https://test.adopus.no/api/notification',
     },
     stage: {
         SRV_DIRECTORY: 'https://stage.adopus.no/api/directory',
@@ -45,6 +48,7 @@ const EnvironmentsUrls = {
         SRV_ARTIFACT: '',
         SRV_ADVOCA:'https://stage.advoca.no/api/service',
         SRV_PROXY: 'https://stage.adopus.no/api/srvproxy',
+        SRV_NOTIFICATION: 'https://test.adopus.no/api/notification',
     },
     prod: {
         SRV_DIRECTORY: 'https://www.adopus.no/api/directory',
@@ -55,7 +59,8 @@ const EnvironmentsUrls = {
         SRV_CONNECTOR: 'https://connector.adopus.no',
         SRV_ARTIFACT: '',
         SRV_ADVOCA:'https://www.advoca.no/api/service',
-        SRV_PROXY: 'https://www.advoca.no/api/srvproxy',
+        SRV_PROXY: 'https://www.adopus.no/api/srvproxy',
+        SRV_NOTIFICATION: 'https://www.adopus.no/api/notification',
     },
 }
 

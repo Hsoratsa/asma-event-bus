@@ -8,5 +8,6 @@ export declare function environmentUrls(): {
     SRV_ARTIFACT: string;
     SRV_ADVOCA: string;
     SRV_PROXY: string;
+    SRV_NOTIFICATION: string;
 } | undefined;
 //# sourceMappingURL=EnvironmentsUrls.d.ts.map
