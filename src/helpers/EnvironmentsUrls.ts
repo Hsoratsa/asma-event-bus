@@ -48,7 +48,7 @@ const EnvironmentsUrls = {
         SRV_ARTIFACT: '',
         SRV_ADVOCA:'https://stage.advoca.no/api/service',
         SRV_PROXY: 'https://stage.adopus.no/api/srvproxy',
-        SRV_NOTIFICATION: 'https://test.adopus.no/api/notification',
+        SRV_NOTIFICATION: 'https://stage.adopus.no/api/notification',
     },
     prod: {
         SRV_DIRECTORY: 'https://www.adopus.no/api/directory',
