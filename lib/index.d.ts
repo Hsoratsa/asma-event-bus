@@ -15,6 +15,7 @@ export * from './helpers/EnvironmentsUrls';
 export * from './helpers/EnvironmentToOperateTypes';
 export * from './helpers/userTypingSignal';
 export * from './helpers/generateSrvAuthBindings';
+export * from './helpers/getSubdomain';
 export * from './utility/fetch';
 export * from './clients/srvAuth';
 export type { IUploadedDocument } from './interfaces/api/advoca/IUploadedDocument';

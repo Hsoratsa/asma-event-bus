@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import * as React from 'react';
 export declare function createInjectableContext<T>(): {
-    StoreProvider: FC<{
+    StoreProvider: React.FC<{
         store: T;
+        children: React.ReactNode;
     }>;
     useStore: () => T;
 };

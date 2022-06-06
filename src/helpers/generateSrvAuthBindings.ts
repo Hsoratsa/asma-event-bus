@@ -1,5 +1,5 @@
 import { IBaseJwtClaims } from "asma-genql-directory/lib"
-import axios, { AxiosResponse } from "axios"
+import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from "axios"
 import { EnvironmentEnums, parseJwt } from ".."
 
 export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?:() => void) {
@@ -67,6 +67,28 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         }
     }
 
+    async function setReqConfig<T = unknown>(data?: T, responseType?: ResponseType): Promise<AxiosRequestConfig> {
+        
+        const token = await getJwtTokenAsync()
+    
+        const res: AxiosRequestConfig = {
+            data: data,
+            responseType: responseType,
+            headers: {},
+        }
+    
+        if (token) {
+            
+            if(!res.headers){
+                res.headers = {}
+            }
+
+            res.headers.Authorization = `Bearer ${token}`
+        }
+    
+        return res
+    }
+
     async function getNewJwtToken() {
         try {
             if (!fetchJwtPromise) {
@@ -109,6 +131,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         signin,
         srvAuthGet,
         signoutAuth,
+        setReqConfig,
         getJwtTokenAsync,
         getNewJwtToken,
         getUserId,
