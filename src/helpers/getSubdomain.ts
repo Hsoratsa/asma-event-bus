@@ -1,6 +1,6 @@
 export function getSubdomain() {
-    const pathname_arr = window.location.hostname.split('.')
-    debugger
+    const pathname_arr = window.location.pathname.split('.')
+
     let subdomain = ''
 
     if (
