@@ -10,9 +10,9 @@ export function config<T>(env_var: string, default_value: T): ObjectType<T> {
     }
     
     const connector =
-    (window.location.host.includes('adopus') && 'adopus') ||
-    (window.location.host.includes('adcuris') && 'adcuris') ||
-    ''
+    (window.location.host.includes('adopus.no') && 'adopus') ||
+    (window.location.host.includes('adcuris.no') && 'adcuris') ||
+    undefined
     
     if(connector){
         return ((window._env_cloud?.[connector]?.[env_var] ?? default_value)) as ObjectType<T>
