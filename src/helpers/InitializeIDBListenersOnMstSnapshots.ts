@@ -44,7 +44,7 @@ async function applySnapshotOnResolvedIDBGetPromise<T>(key: keyof T, main_store:
     } catch (e) {
         del(String(key))
 
-        console.error(`resolveIDBGetPromise, ${key}:`, e)
+        console.error(`resolveIDBGetPromise, ${String(key)}:`, e)
     }
 }
 

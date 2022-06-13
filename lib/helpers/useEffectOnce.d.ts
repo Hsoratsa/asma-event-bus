@@ -1,3 +1,2 @@
-/// <reference types="react" />
-export declare const useEffectOnce: (effect: () => void | (() => void), vars?: import("react").DependencyList | undefined) => void;
+export declare const useEffectOnce: (effect: () => void | (() => void), vars?: React.DependencyList) => void;
 //# sourceMappingURL=useEffectOnce.d.ts.map
