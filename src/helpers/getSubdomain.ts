@@ -1,5 +1,5 @@
 function getSubdomain() {
-    const hostname_arr = window.location.hostname.split('.')
+    const hostname_arr = window.location.hostname.split('.')// fretex-dfsf.advoca.no
 
     let subdomain = ''
 

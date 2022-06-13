@@ -13,13 +13,20 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
     const isJwtValid = () => !isJwtInvalid
 
     async function srvAuthGet<R>(url: string, headers?: Record<string, string>) {
+        
         if (DEVELOPMENT && ENVIRONMENT_TO_OPERATE) {
+            
             url = `${url}&env=${ENVIRONMENT_TO_OPERATE}`
+            
             url = url.includes('&') && !url.includes('?') ? url.replace('&', '?') : url
         }
+        
         return axios.get<unknown, AxiosResponse<R>>(`${SRV_AUTH}${url}`, {
-            headers,
+            headers: {
+                ...headers,
+            },
             withCredentials: true,
+            
         })
     }
 
