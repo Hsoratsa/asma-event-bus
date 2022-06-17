@@ -1,6 +1,6 @@
 {
     "name": "asma-app-lib-helpers",
-    "version": "1.6.6",
+    "version": "1.0.7",
     "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
     "main": "lib/index.js",
     "types": "lib",
@@ -20,8 +20,8 @@
         "typescript": "^4.7.3"
     },
     "dependencies": {
+        "@genql/runtime": "^2.10.0",
         "antd": "^4.20.5",
-        "asma-genql-directory": "^1.0.45",
         "axios": "^0.27.2",
         "idb-keyval": "^6.1.0",
         "mobx": "^6.6.0",
