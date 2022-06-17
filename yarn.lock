@@ -48,7 +48,7 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@genql/runtime@^2.9.0":
+"@genql/runtime@^2.10.0":
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/@genql/runtime/-/runtime-2.10.0.tgz#7177a6ce7d6815873d5e668c5b72d94294b45fab"
   integrity sha512-hWy4fkHAk0OUW/cmjAOhbE3PnR9YfwaE8DRl5oEf7r9K6Owju8ogTDV3RMkG6Vm57H9xYxI5+am5ImAUbqPH8A==
@@ -155,14 +155,6 @@ array-tree-filter@^2.1.0:
   resolved "https://registry.yarnpkg.com/array-tree-filter/-/array-tree-filter-2.1.0.tgz#873ac00fec83749f255ac8dd083814b4f6329190"
   integrity sha512-4ROwICNlNw/Hqa9v+rk5h22KjmzB1JGTMVKP2AKJBOCgb0yL0ASf0+YvCcLNNwquOHNX48jkeZIJ3a+oOQqKcw==
 
-asma-genql-directory@^1.0.45:
-  version "1.0.45"
-  resolved "https://registry.yarnpkg.com/asma-genql-directory/-/asma-genql-directory-1.0.45.tgz#cba2ca8220373e0fd65a08c2fc37aceaf681be50"
-  integrity sha512-1y47SR/YfGr1Wrl6XBk4yq9zzWRfMsZi5dFGkXgA/G2m/qFgjsMCkCMkGFma7AabILz0WV52PFw7POLqpbzIVg==
-  dependencies:
-    "@genql/runtime" "^2.9.0"
-    graphql "^15.5.1"
-
 async-limiter@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
@@ -263,11 +255,6 @@ graphql-query-batcher@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graphql-query-batcher/-/graphql-query-batcher-1.0.1.tgz#23a5c68218df16c3a77ed63028acc09eee7485a5"
   integrity sha512-NGntvsC2R6c+yqOiMfKXZL3/PpQUIpy70RgroPXRcuDJ1wxJJFesJAEu3Wv5gLbOpr/xPqXCMw2yTGHbqs8uqQ==
-
-graphql@^15.5.1:
-  version "15.5.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
-  integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==
 
 idb-keyval@^6.1.0:
   version "6.1.0"

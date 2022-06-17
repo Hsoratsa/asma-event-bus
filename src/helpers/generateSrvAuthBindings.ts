@@ -1,4 +1,3 @@
-import { IBaseJwtClaims } from "asma-genql-directory/lib"
 import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from "axios"
 import { EnvironmentEnums, parseJwt } from ".."
 
@@ -129,7 +128,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
 
 
 
-    function getParsedJwt<R=IBaseJwtClaims>(): R|undefined {
+    function getParsedJwt<R={user_id:string,exp:number}>(): R|undefined {
         return parseJwt<R>(jwtToken)
     }
 
