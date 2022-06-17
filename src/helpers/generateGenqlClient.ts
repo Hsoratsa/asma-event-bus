@@ -1,7 +1,8 @@
 import { AxiosRequestConfig } from "axios"
 import type { ClientOptions } from '@genql/runtime'
+import { httpToWs } from "./Config"
 
-export function generateGenQlClient<T>({
+export function generateGenqlClient<T>({
     accessTokenHasExpired,
     setReqConfig,
     createClient,
@@ -12,11 +13,15 @@ export function generateGenQlClient<T>({
     createClient: (options?: ClientOptions | undefined) => T
     serviceUrl: () => string | undefined
 }) {
+
+
+  
+
     let directoryClient: T | null = null
 
-    async function getDirectoryGenGqlClient() {
+    async function getGenqlClient() {
         if (accessTokenHasExpired() || directoryClient === null) {
-            directoryClient = await directoryGenQLClient()
+            directoryClient = await genqlClient()
 
             return directoryClient
         }
@@ -24,16 +29,18 @@ export function generateGenQlClient<T>({
         return directoryClient
     }
 
-    function resetDirectoryClient() {
+    function resetGenqlClient() {
         directoryClient = null
     }
 
-    async function directoryGenQLClient(
+    async function genqlClient(
         anonymous: boolean | undefined = undefined,
         headers: Record<string, string> = {},
     ): Promise<T> {
         let req_headers: Record<string, string> = {}
-
+        if(!serviceUrl()){
+            console.warn('requred param srv_url is undefined, please check EnvConfig object!')
+        }
         if (!anonymous) {
             req_headers = ((await setReqConfig()).headers ?? {}) as Record<string, string>
         }
@@ -48,5 +55,32 @@ export function generateGenQlClient<T>({
         })
     }
 
-    return { getDirectoryGenGqlClient, resetDirectoryClient, directoryGenQLClient }
+    async function genqlClientWs(
+        anonymous: boolean | undefined = undefined,
+        headers: Record<string, string> = {},
+    ): Promise<T> {
+        const service_url = serviceUrl()
+        if(!service_url){
+            console.warn('requred param srv_url is undefined, please check EnvConfig object!')
+        }
+
+        let req_headers: Record<string, string> = {}
+
+        if (!anonymous) {
+            req_headers = ((await setReqConfig()).headers ?? {}) as Record<string, string>
+        }
+
+        
+
+        return createClient({
+            url: `${service_url&&httpToWs(service_url)}/v1/graphql`,
+            headers: {
+                ...req_headers,
+                ...headers,
+            },
+        })
+    }
+
+
+    return { getGenGqlClient: getGenqlClient, resetGenqlClient, genqlClient, genqlClientWs }
 }
