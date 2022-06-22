@@ -10,6 +10,6 @@ export declare function generateGenqlClient<T>({ accessTokenHasExpired, setReqCo
     getGenGqlClient: () => Promise<T>;
     resetGenqlClient: () => void;
     genqlClient: (anonymous?: boolean | undefined, headers?: Record<string, string>) => Promise<T>;
-    genqlClientWs: (anonymous?: boolean | undefined, headers?: Record<string, string>) => Promise<T>;
+    genqlClientWs: () => Promise<T>;
 };
 //# sourceMappingURL=generateGenqlClient.d.ts.map

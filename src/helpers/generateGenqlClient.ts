@@ -56,28 +56,19 @@ export function generateGenqlClient<T>({
         })
     }
 
-    async function genqlClientWs(
-        anonymous: boolean | undefined = undefined,
-        headers: Record<string, string> = {},
-    ): Promise<T> {
-        const service_url = serviceUrl()
-        if(!service_url){
-            console.warn('requred param srv_url is undefined, please check EnvConfig object!')
-        }
-
-        let req_headers: Record<string, string> = {}
-
-        if (!anonymous) {
-            req_headers = ((await setReqConfig()).headers ?? {}) as Record<string, string>
-        }
-
-        
+    async function genqlClientWs() {
+        const req_headers = ((await setReqConfig()).headers ?? {}) as Record<string, string>
 
         return createClient({
             url: `${serviceUrlWs()}/v1/graphql`,
-            headers: {
-                ...req_headers,
-                ...headers,
+            cache: 'reload',
+            subscription: {
+                timeout: 1,
+                reconnect: true,
+                reconnectionAttempts: 5,
+                headers: {
+                    ...req_headers,
+                },
             },
         })
     }
