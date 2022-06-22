@@ -1,6 +1,6 @@
 {
     "name": "asma-app-lib-helpers",
-    "version": "2.0.23",
+    "version": "1.6.12",
     "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
     "main": "lib/index.js",
     "types": "lib",
@@ -27,6 +27,6 @@
         "idb-keyval": "^6.1.0",
         "mobx": "^6.6.0",
         "mobx-state-tree": "^5.1.5",
-        "react": "^18.1.0"
+        "react": "^17.0.2"
     }
 }
