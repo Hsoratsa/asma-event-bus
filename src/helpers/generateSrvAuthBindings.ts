@@ -3,6 +3,7 @@ import { EnvironmentEnums, parseJwt } from ".."
 
 export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?:() => void) {
     let jwtToken = ''
+    let parsed_jwt:any|undefined = undefined
     
     let fetchJwtPromise: Promise<{ data: { message: string; token?: string; errors: { message: string }[] } }> | null =
     null
@@ -129,7 +130,10 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
 
 
     function getParsedJwt<R={user_id:string,exp:number}>(): R|undefined {
-        return parseJwt<R>(jwtToken)
+        if(!parsed_jwt){
+            parsed_jwt = parseJwt<R>(jwtToken) 
+        }
+        return parsed_jwt
     }
 
     return {
