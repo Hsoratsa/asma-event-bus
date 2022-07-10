@@ -73,7 +73,6 @@
 
         "strictBindCallApply": true,
 
-        "noEmit": true,
         "noPropertyAccessFromIndexSignature": true,
         "resolveJsonModule": true,
         "experimentalDecorators": false,

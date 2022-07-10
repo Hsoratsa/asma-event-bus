@@ -15,8 +15,8 @@ declare global {
         __ASMA__SHELL__?: {
             history?: History
             auth_bindings?: IGenerateSRVAuthBindings
-            isLogged: boolean
-            logoutUser: () => void
+            isLogged?: () => boolean
+            logoutUser?: () => void
         }
 
         _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string>>

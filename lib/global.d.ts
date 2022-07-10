@@ -1,5 +1,5 @@
 import { type History, createBrowserHistory } from 'history';
-import { IGenerateSRVAuthBindings } from './helpers/generateSrvAuthBindings';
+import type { IGenerateSRVAuthBindings } from './helpers/generateSrvAuthBindings';
 export {};
 declare global {
     interface Window {
@@ -14,7 +14,8 @@ declare global {
         __ASMA__SHELL__?: {
             history?: History;
             auth_bindings?: IGenerateSRVAuthBindings;
-            isLogged: boolean;
+            isLogged?: () => boolean;
+            logoutUser?: () => void;
         };
         _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string>>;
         _srvUrls?: Record<string, string>;
@@ -24,6 +25,10 @@ declare global {
          * WILL BE REMOVED AT NEXT MAJOR RELEASE
          */
         isLogged: boolean;
+        /**
+         * @warning
+         * In MicroApps use window.__ASMA__SHELL__.logoutUser
+         */
         logoutUser: () => void;
         wsConnection: any;
     }
