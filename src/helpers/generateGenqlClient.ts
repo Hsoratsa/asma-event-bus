@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios"
+import type { AxiosRequestConfig } from "axios"
 import type { ClientOptions } from '@genql/runtime'
 
 export function generateGenqlClient<T>({

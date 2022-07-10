@@ -102,7 +102,7 @@ export function generateSrvAuthBindings(
                 res.headers = {}
             }
 
-            res.headers.Authorization = `Bearer ${token}`
+            res.headers['Authorization'] = `Bearer ${token}`
         }
 
         return res

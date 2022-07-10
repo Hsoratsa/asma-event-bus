@@ -1,7 +1,7 @@
 import { notification } from 'antd'
 
 export function processServerError(error: string | Record<string, any>, operationName?: string): void {
-    console.error(error)
+    console['error'](error)
 
     let errorMessage = getServerErrorMessage(error)
 
@@ -15,20 +15,21 @@ export function processServerError(error: string | Record<string, any>, operatio
 export function getServerErrorMessage(error: Record<string, any> | string): string {
     if (typeof error == 'string') {
         return error
-    } else if (error.data && error.data.Message) {
-        return error.data.Message
+    } else if (error['data'] && error['data']['Message']) {
+        return error['data']['Message']
     }
     if (Array.isArray(error)) {
         return getArrayErrorsMessage(error)
     }
-    if(Array.isArray(error?.errors)){
-        return getArrayErrorsMessage(error.errors)
+    if(Array.isArray(error?.['errors'])){
+        return getArrayErrorsMessage(error['errors'])
     }
     //graphql
-    else if (error.bodyText) {
-        return error.bodyText
-    } else if (error.response && error.response.data) {
-        const data = error.response.data?.error ?? error.response.data
+    else if (error['bodyText']) {
+        return error['bodyText']
+    } else if (error['response'] && error['response'].data) {
+
+        const data = error['response'].data?.['error'] ?? error['response'].data
 
         if (typeof data == 'string') {
             return data
@@ -69,12 +70,12 @@ export function getServerErrorMessage(error: Record<string, any> | string): stri
         } else {
             return 'Missing field: data type not processed'
         }
-    } else if (error.message) {
-        return error.message
-    } else if (error.error) {
-        return error.error
-    } else if (error?.request?.response) {
-        return error.request.response
+    } else if (error['message']) {
+        return error['message']
+    } else if (error['error']) {
+        return error['error']
+    } else if (error?.['request']?.['response']) {
+        return error['request']['response']
     } else {
         return "Missing field: Couldn't process error"
     }
@@ -83,7 +84,7 @@ export function showErrorMessage(title: string, message: string | any, duration 
     let notificationMessage: string
 
     if (typeof message == 'object') {
-        notificationMessage = message.message
+        notificationMessage = message['message']
     }
 
     if (!message) {
@@ -92,7 +93,7 @@ export function showErrorMessage(title: string, message: string | any, duration 
         notificationMessage = message
     }
 
-    notification.error({
+    notification['error']({
         message: title,
         description: notificationMessage,
         duration,
@@ -103,7 +104,7 @@ function getArrayErrorsMessage(error: Record<string, unknown>[]): string {
     const porcessed_error = error
         .map((err) => {
             if ('message' in err) {
-                return err.message as string
+                return err['message'] as string
             } else return ''
         })
         .join()

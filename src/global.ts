@@ -1,5 +1,5 @@
 import { type History, createBrowserHistory } from 'history'
-import { IGenerateSRVAuthBindings } from './helpers/generateSrvAuthBindings'
+import type { IGenerateSRVAuthBindings } from './helpers/generateSrvAuthBindings'
 export {}
 
 declare global {
