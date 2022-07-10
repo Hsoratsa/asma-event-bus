@@ -16,6 +16,7 @@ declare global {
             history?: History
             auth_bindings?: IGenerateSRVAuthBindings
             isLogged: boolean
+            logoutUser: () => void
         }
 
         _env_cloud?: Record<'adopus' | 'adcuris', Record<string, string>>
@@ -26,6 +27,10 @@ declare global {
          * WILL BE REMOVED AT NEXT MAJOR RELEASE
          */
         isLogged: boolean
+        /**
+         * @warning
+         * In MicroApps use window.__ASMA__SHELL__.logoutUser
+         */
         logoutUser: () => void
         wsConnection: any
     }
