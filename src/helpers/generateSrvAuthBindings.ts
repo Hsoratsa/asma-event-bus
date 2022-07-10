@@ -1,32 +1,46 @@
-import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from "axios"
-import { EnvironmentEnums, parseJwt } from ".."
-
-export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?:() => void) {
+import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from 'axios'
+import { EnvironmentEnums, parseJwt } from '..'
+export interface IGenerateSRVAuthBindings {
+    isJwtValid: () => boolean
+    signin(url: string, headers?: Record<string, string>): Promise<{ token: string }>
+    srvAuthGet<R>(url: string, headers?: Record<string, string>): Promise<AxiosResponse<R, any>>
+    signoutAuth(): Promise<void>
+    setReqConfig<T = unknown>(data?: T, responseType?: ResponseType): Promise<AxiosRequestConfig>
+    getJwtTokenAsync(): Promise<string>
+    getNewJwtToken(): Promise<string>
+    getUserId(): string
+    getParsedJwt<R = { user_id: string; exp: number }>(): R | undefined
+    getJwtToken(): string
+    accessTokenHasExpired(): boolean
+}
+export function generateSrvAuthBindings(
+    SRV_AUTH: string,
+    DEVELOPMENT: boolean,
+    ENVIRONMENT_TO_OPERATE: EnvironmentEnums,
+    logout?: () => void,
+): IGenerateSRVAuthBindings {
     let jwtToken = ''
-    let parsed_jwt:any|undefined = undefined
-    
+    let parsed_jwt: any | undefined = undefined
+
     let fetchJwtPromise: Promise<{ data: { message: string; token?: string; errors: { message: string }[] } }> | null =
-    null
-    
-    const isJwtInvalid = ()=> (jwtToken && accessTokenHasExpired()) || !jwtToken
-    
+        null
+
+    const isJwtInvalid = () => (jwtToken && accessTokenHasExpired()) || !jwtToken
+
     const isJwtValid = () => !isJwtInvalid
 
     async function srvAuthGet<R>(url: string, headers?: Record<string, string>) {
-        
         if (DEVELOPMENT && ENVIRONMENT_TO_OPERATE) {
-            
             url = `${url}&env=${ENVIRONMENT_TO_OPERATE}`
-            
+
             url = url.includes('&') && !url.includes('?') ? url.replace('&', '?') : url
         }
-        
+
         return axios.get<unknown, AxiosResponse<R>>(`${SRV_AUTH}${url}`, {
             headers: {
                 ...headers,
             },
             withCredentials: true,
-            
         })
     }
 
@@ -45,7 +59,7 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         const { data } = await srvAuthGet<{ token: string }>(url, headers)
 
         setJwtToken(data.token)
-        
+
         return data
     }
 
@@ -75,24 +89,22 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
     }
 
     async function setReqConfig<T = unknown>(data?: T, responseType?: ResponseType): Promise<AxiosRequestConfig> {
-        
         const token = await getJwtTokenAsync()
-    
+
         const res: AxiosRequestConfig = {
             data: data,
             responseType: responseType,
             headers: {},
         }
-    
+
         if (token) {
-            
-            if(!res.headers){
+            if (!res.headers) {
                 res.headers = {}
             }
 
             res.headers.Authorization = `Bearer ${token}`
         }
-    
+
         return res
     }
 
@@ -127,11 +139,9 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
         }
     }
 
-
-
-    function getParsedJwt<R={user_id:string,exp:number}>(): R|undefined {
-        if(!parsed_jwt){
-            parsed_jwt = parseJwt<R>(jwtToken) 
+    function getParsedJwt<R = { user_id: string; exp: number }>(): R | undefined {
+        if (!parsed_jwt) {
+            parsed_jwt = parseJwt<R>(jwtToken)
         }
         return parsed_jwt
     }
@@ -151,3 +161,14 @@ export function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, 
     }
 }
 
+export function generateSrvAuthBindingsMicroApp(
+    SRV_AUTH: string,
+    DEVELOPMENT: boolean,
+    ENVIRONMENT_TO_OPERATE: EnvironmentEnums,
+    logout?: () => void,
+) {
+    return (
+        window.__ASMA__SHELL__?.auth_bindings ||
+        generateSrvAuthBindings(SRV_AUTH, DEVELOPMENT, ENVIRONMENT_TO_OPERATE, logout)
+    )
+}
