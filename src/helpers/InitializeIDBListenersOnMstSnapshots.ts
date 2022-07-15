@@ -25,7 +25,7 @@ async function checkForIDBData<T>(main_store: T) {
         return acc
     }, stores_promises)
 
-    await myPromiseAllSettled(promises)
+    await Promise.allSettled(promises)
 }
 
 export function initiatieIDBListenersOnMstSnaphsots<T, K extends keyof T>(store: T, omit: K[] = []) {
@@ -48,7 +48,7 @@ async function applySnapshotOnResolvedIDBGetPromise<T>(key: keyof T, main_store:
     }
 }
 
-function* map(iterable: any, callback: any) {
+/* function* map(iterable: any, callback: any) {
     for (const value of iterable) {
         yield callback(value)
     }
@@ -59,4 +59,4 @@ const myPromiseAllSettled = (promises: Promise<unknown>[]) => {
     const rejected = (reason: unknown) => ({ status: 'rejected', reason })
 
     return Promise.all(map(promises, (p: unknown) => Promise.resolve(p).then(fulfilled, rejected)))
-}
+} */
