@@ -39,6 +39,7 @@ export function generateSrvAuthBindings(
         return axios.get<unknown, AxiosResponse<R>>(`${SRV_AUTH}${url}`, {
             headers: {
                 ...headers,
+                'asma-origin': window.location.origin,
             },
             withCredentials: true,
         })
