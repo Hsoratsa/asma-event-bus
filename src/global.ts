@@ -5,6 +5,9 @@ export {}
 declare global {
     interface Window {
         __ENV?: Record<string, string>
+        __ENV_MICRO: {
+            [key: string]: Record<string, string>
+        }
         __MICROAPP_REGISTRY?: {
             name: string
             entry: string
