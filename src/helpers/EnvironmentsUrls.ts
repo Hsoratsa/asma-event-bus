@@ -1,7 +1,6 @@
-import { configWeb, EnvironmentEnums } from ".."
+import { configWeb, EnvironmentEnums } from '..'
 
 export const EnvironmentsUrls = {
-    
     local: {
         SRV_DIRECTORY: `http://${window.location.hostname}:7001`,
         SRV_CALENDAR: `http://${window.location.hostname}:7011`,
@@ -46,7 +45,7 @@ export const EnvironmentsUrls = {
         SRV_CHAT: 'https://stage.adopus.no/api/chat',
         SRV_CONNECTOR: 'https://connector.adopus.no/stage',
         SRV_ARTIFACT: '',
-        SRV_ADVOCA:'https://stage.advoca.no/api/service',
+        SRV_ADVOCA: 'https://stage.advoca.no/api/service',
         SRV_PROXY: 'https://stage.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://stage.adopus.no/api/notification',
     },
@@ -58,15 +57,22 @@ export const EnvironmentsUrls = {
         SRV_CHAT: 'https://www.adopus.no/api/chat',
         SRV_CONNECTOR: 'https://connector.adopus.no',
         SRV_ARTIFACT: '',
-        SRV_ADVOCA:'https://www.advoca.no/api/service',
+        SRV_ADVOCA: 'https://www.advoca.no/api/service',
         SRV_PROXY: 'https://www.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://www.adopus.no/api/notification',
     },
 }
 
-export function environmentUrls(){
+export function environmentUrls(ENVIRONMENT_TO_OPERATE: string) {
+    let env: EnvironmentEnums | undefined
 
-    const env = configWeb('ENVIRONMENT_TO_OPERATE','no_env') as EnvironmentEnums
-    
-    return env !== "no_env" && window.__ENV?.['DEVELOPMENT'] && EnvironmentsUrls[env] || undefined
+    const env_to_operate_window = configWeb('ENVIRONMENT_TO_OPERATE', '')
+
+    if (ENVIRONMENT_TO_OPERATE in EnvironmentEnums || env_to_operate_window in EnvironmentEnums) {
+        env = (ENVIRONMENT_TO_OPERATE || env_to_operate_window) as EnvironmentEnums
+
+        return env && EnvironmentsUrls[env]
+    }
+
+    return
 }
