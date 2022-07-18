@@ -60,7 +60,7 @@ export declare const EnvironmentsUrls: {
         SRV_NOTIFICATION: string;
     };
 };
-export declare function environmentUrls(ENVIRONMENT_TO_OPERATE: string): {
+export declare function environmentUrls(ENVIRONMENT_TO_OPERATE?: string): {
     SRV_DIRECTORY: string;
     SRV_CALENDAR: string;
     SRV_PROXY_OLD: string;

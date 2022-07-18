@@ -63,12 +63,15 @@ export const EnvironmentsUrls = {
     },
 }
 
-export function environmentUrls(ENVIRONMENT_TO_OPERATE: string) {
+export function environmentUrls(ENVIRONMENT_TO_OPERATE?: string) {
     let env: EnvironmentEnums | undefined
 
     const env_to_operate_window = configWeb('ENVIRONMENT_TO_OPERATE', '')
 
-    if (ENVIRONMENT_TO_OPERATE in EnvironmentEnums || env_to_operate_window in EnvironmentEnums) {
+    if (
+        (ENVIRONMENT_TO_OPERATE && ENVIRONMENT_TO_OPERATE in EnvironmentEnums) ||
+        env_to_operate_window in EnvironmentEnums
+    ) {
         env = (ENVIRONMENT_TO_OPERATE || env_to_operate_window) as EnvironmentEnums
 
         return env && EnvironmentsUrls[env]
