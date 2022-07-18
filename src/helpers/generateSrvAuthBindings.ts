@@ -27,7 +27,7 @@ export function generateSrvAuthBindings(
 
     const isJwtInvalid = () => (jwtToken && accessTokenHasExpired()) || !jwtToken
 
-    const isJwtValid = () => !isJwtInvalid
+    const isJwtValid = () => !isJwtInvalid()
 
     async function srvAuthGet<R>(url: string, headers?: Record<string, string>) {
         if (DEVELOPMENT() && ENVIRONMENT_TO_OPERATE()) {
