@@ -1,1 +1,1 @@
-{"version":3,"file":"EnvironmentsUrls.d.ts","sourceRoot":"","sources":["../../src/helpers/EnvironmentsUrls.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,gBAAgB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CA8D5B,CAAA;AAED,wBAAgB,eAAe;;;;;;;;;;;cAK9B"}
+{"version":3,"file":"EnvironmentsUrls.d.ts","sourceRoot":"","sources":["../../src/helpers/EnvironmentsUrls.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,gBAAgB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CA6D5B,CAAA;AAED,wBAAgB,eAAe,CAAC,sBAAsB,EAAE,MAAM;;;;;;;;;;;cAY7D"}
