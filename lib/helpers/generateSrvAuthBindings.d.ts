@@ -18,6 +18,6 @@ export interface IGenerateSRVAuthBindings {
     getJwtToken(): string;
     accessTokenHasExpired(): boolean;
 }
-export declare function generateSrvAuthBindings(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?: () => void): IGenerateSRVAuthBindings;
-export declare function generateSrvAuthBindingsMicroApp(SRV_AUTH: string, DEVELOPMENT: boolean, ENVIRONMENT_TO_OPERATE: EnvironmentEnums, logout?: () => void): IGenerateSRVAuthBindings;
+export declare function generateSrvAuthBindings(SRV_AUTH: () => string, DEVELOPMENT: () => boolean, ENVIRONMENT_TO_OPERATE: () => EnvironmentEnums, logout?: () => void): IGenerateSRVAuthBindings;
+export declare function generateSrvAuthBindingsMicroApp(SRV_AUTH: () => string, DEVELOPMENT: () => boolean, ENVIRONMENT_TO_OPERATE: () => EnvironmentEnums, logout?: () => void): IGenerateSRVAuthBindings;
 //# sourceMappingURL=generateSrvAuthBindings.d.ts.map
