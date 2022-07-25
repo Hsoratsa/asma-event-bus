@@ -12,6 +12,8 @@ export const EnvironmentsUrls = {
         SRV_ADVOCA: `http://${window.location.hostname}:4433`,
         SRV_PROXY: `http://${window.location.hostname}:7003`,
         SRV_NOTIFICATION: `http://${window.location.hostname}:7002`,
+
+        SRV_AO_DIRECTORY: `http://${window.location.hostname}:7013`,
     },
     dev: {
         SRV_DIRECTORY: 'https://dev.adopus.no/api/directory',
@@ -24,6 +26,8 @@ export const EnvironmentsUrls = {
         SRV_ADVOCA: 'https://dev.advoca.no/api/service',
         SRV_PROXY: 'https://dev.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://dev.adopus.no/api/notification',
+
+        SRV_AO_DIRECTORY: 'https://dev.adopus.no/api/directory',
     },
     test: {
         SRV_DIRECTORY: 'https://test.adopus.no/api/directory',
@@ -36,6 +40,8 @@ export const EnvironmentsUrls = {
         SRV_ADVOCA: 'https://test.advoca.no/api/service',
         SRV_PROXY: 'https://test.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://test.adopus.no/api/notification',
+
+        SRV_AO_DIRECTORY: 'https://test.adopus.no/api/directory',
     },
     stage: {
         SRV_DIRECTORY: 'https://stage.adopus.no/api/directory',
@@ -48,6 +54,8 @@ export const EnvironmentsUrls = {
         SRV_ADVOCA: 'https://stage.advoca.no/api/service',
         SRV_PROXY: 'https://stage.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://stage.adopus.no/api/notification',
+
+        SRV_AO_DIRECTORY: 'https://stage.adopus.no/api/directory',
     },
     prod: {
         SRV_DIRECTORY: 'https://www.adopus.no/api/directory',
@@ -60,6 +68,8 @@ export const EnvironmentsUrls = {
         SRV_ADVOCA: 'https://www.advoca.no/api/service',
         SRV_PROXY: 'https://www.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://www.adopus.no/api/notification',
+
+        SRV_AO_DIRECTORY: 'https://www.adopus.no/api/directory',
     },
 }
 
