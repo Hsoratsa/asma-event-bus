@@ -27,7 +27,7 @@ export const EnvironmentsUrls = {
         SRV_PROXY: 'https://dev.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://dev.adopus.no/api/notification',
 
-        SRV_AO_DIRECTORY: 'https://dev.adopus.no/api/directory',
+        SRV_AO_DIRECTORY: 'https://dev.adopus.no/ao/directory',
     },
     test: {
         SRV_DIRECTORY: 'https://test.adopus.no/api/directory',
@@ -41,7 +41,7 @@ export const EnvironmentsUrls = {
         SRV_PROXY: 'https://test.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://test.adopus.no/api/notification',
 
-        SRV_AO_DIRECTORY: 'https://test.adopus.no/api/directory',
+        SRV_AO_DIRECTORY: 'https://test.adopus.no/ao/directory',
     },
     stage: {
         SRV_DIRECTORY: 'https://stage.adopus.no/api/directory',
@@ -55,7 +55,7 @@ export const EnvironmentsUrls = {
         SRV_PROXY: 'https://stage.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://stage.adopus.no/api/notification',
 
-        SRV_AO_DIRECTORY: 'https://stage.adopus.no/api/directory',
+        SRV_AO_DIRECTORY: 'https://stage.adopus.no/ao/directory',
     },
     prod: {
         SRV_DIRECTORY: 'https://www.adopus.no/api/directory',
@@ -69,7 +69,7 @@ export const EnvironmentsUrls = {
         SRV_PROXY: 'https://www.adopus.no/api/srvproxy',
         SRV_NOTIFICATION: 'https://www.adopus.no/api/notification',
 
-        SRV_AO_DIRECTORY: 'https://www.adopus.no/api/directory',
+        SRV_AO_DIRECTORY: 'https://www.adopus.no/ao/directory',
     },
 }
 
