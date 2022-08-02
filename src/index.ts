@@ -9,6 +9,8 @@ export * from './helpers/Config'
 export * from './helpers/Execute'
 export * from './helpers/CreateInjectableContext'
 export * from './helpers/InitializeIDBListenersOnMstSnapshots'
+export * from './helpers/InitializeIDBListenersOnMstSnapshotsThenCatch'
+
 export * from './helpers/getGqlOperationName'
 export * from './helpers/parseJwt'
 export * from './helpers/EnvironmentsUrls'

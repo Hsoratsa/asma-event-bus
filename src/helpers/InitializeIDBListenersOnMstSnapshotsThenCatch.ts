@@ -1,11 +1,10 @@
 import { del, get, set } from 'idb-keyval'
-import { applySnapshot, onSnapshot,isStateTreeNode } from 'mobx-state-tree'
+import { applySnapshot, onSnapshot, isStateTreeNode } from 'mobx-state-tree'
 function setIDBListenersOnSnapshots<T, K extends keyof T>(store: T, omit: K[] = []) {
     const keys = (Object.keys(store) as Array<keyof typeof store>).filter((k) => !omit.includes(k as K))
-
     keys.forEach((key) => {
         const mst_node = store[key]
-        
+
         if (isStateTreeNode(mst_node)) {
             onSnapshot(mst_node, (snapshot) => {
                 set(String(key), snapshot).catch((e) => console.error(e))
@@ -24,28 +23,46 @@ async function checkForIDBData<T>(main_store: T) {
 
         return acc
     }, stores_promises)
-
-    await Promise.allSettled(promises)
+    try {
+        await Promise.allSettled(promises)
+    } catch (e) {
+        console.error(e)
+    }
 }
-
-export function initiatieIDBListenersOnMstSnaphsots<T, K extends keyof T>(store: T, omit: K[] = []) {
+/**
+ * @description
+ * On internal function applySnapshotOnResolvedIDBGetPromise :
+ * When using await get( ) it at first load most of the times intrerupt code exectuion and does nothing
+ * as a workaround is used get('some-key').then(...).catch(...) it might be a bit anoyng for user because
+ * it shows empty application and after adds data.
+ */
+export function initiatieIDBListenersOnMstSnaphsotsThenCatch<T, K extends keyof T>(store: T, omit: K[] = []) {
     setIDBListenersOnSnapshots(store, omit)
 
     return checkForIDBData(store)
 }
 
 async function applySnapshotOnResolvedIDBGetPromise<T>(key: keyof T, main_store: T): Promise<void> {
-    try {
-        const res = await get(String(key))
+    const pkey = String(key)
 
-        if (res) {
-            applySnapshot(main_store[key], res)
-        }
+    get(pkey)
+        .then((res) => {
+            if (res) {
+                applySnapshot(main_store[key], res)
+            }
+        })
+        .catch((e) => {
+            del(String(key))
+
+            console.error(`resolveIDBGetPromise, ${String(key)}:`, e)
+        })
+
+    /* try {
+    
+        const res = await get(pkey)
+
     } catch (e) {
-        del(String(key))
-
-        console.error(`resolveIDBGetPromise, ${String(key)}:`, e)
-    }
+    } */
 }
 
 /* function* map(iterable: any, callback: any) {

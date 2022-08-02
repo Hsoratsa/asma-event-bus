@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import type { ClientOptions } from '@genql/runtime';
 export declare function generateGenqlClient<T>({ accessTokenHasExpired, setReqConfig, createClient, serviceUrl, serviceUrlWs, }: {
     accessTokenHasExpired: () => boolean;

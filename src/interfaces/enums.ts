@@ -9,10 +9,10 @@ export enum QnrContextTypes {
     Portal = 'portal',
     Outlook = 'outlook',
 }
-export enum  DocSignicatSignStatusTypes {
+export enum DocSignicatSignStatusTypes {
     Complteted = 'completed',
     Rejected = 'rejected',
-    Waiting = 'waiting'
+    Waiting = 'waiting',
 }
 
 export enum DocProxyStatusTypes {
@@ -38,7 +38,7 @@ export enum QuestionTypes {
     DocumentUpload = 'DocumentUpload',
     Readonly = 'Readonly',
     ExpressionQuestion = 'ExpressionQuestion',
-    Chart = 'Chart'
+    Chart = 'Chart',
 }
 
 export enum ActorTypes {
@@ -53,5 +53,4 @@ export enum EnvironmentEnums {
     test = 'test',
     stage = 'stage',
     prod = 'prod',
-    no_env = 'no_env'
 }
