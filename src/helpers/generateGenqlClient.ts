@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig } from "axios"
+import type { AxiosRequestConfig } from 'axios'
 import type { ClientOptions } from '@genql/runtime'
 
 export function generateGenqlClient<T>({
@@ -7,17 +7,15 @@ export function generateGenqlClient<T>({
     createClient,
     serviceUrl,
     serviceUrlWs,
+    path = '/v1/graphql',
 }: {
     accessTokenHasExpired: () => boolean
     setReqConfig: () => Promise<AxiosRequestConfig<any>>
     createClient: (options?: ClientOptions | undefined) => T
     serviceUrl: () => string | undefined
     serviceUrlWs: () => string | undefined
+    path?: string
 }) {
-
-
-  
-
     let directoryClient: T | null = null
 
     async function getGenqlClient() {
@@ -39,7 +37,7 @@ export function generateGenqlClient<T>({
         headers: Record<string, string> = {},
     ): Promise<T> {
         let req_headers: Record<string, string> = {}
-        if(!serviceUrl()){
+        if (!serviceUrl()) {
             console.warn('requred param srv_url is undefined, please check EnvConfig object!')
         }
         if (!anonymous) {
@@ -47,7 +45,7 @@ export function generateGenqlClient<T>({
         }
 
         return createClient({
-            url: `${serviceUrl()}/v1/graphql`,
+            url: `${serviceUrl()}${path}`,
             headers: {
                 ...req_headers,
                 ...headers,
@@ -60,7 +58,7 @@ export function generateGenqlClient<T>({
         const req_headers = ((await setReqConfig()).headers ?? {}) as Record<string, string>
 
         return createClient({
-            url: `${serviceUrlWs()}/v1/graphql`,
+            url: `${serviceUrlWs()}${path}`,
             cache: 'reload',
             subscription: {
                 timeout: 1,
@@ -72,7 +70,6 @@ export function generateGenqlClient<T>({
             },
         })
     }
-
 
     return { getGenGqlClient: getGenqlClient, resetGenqlClient, genqlClient, genqlClientWs }
 }
