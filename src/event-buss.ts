@@ -1,5 +1,7 @@
 import type { EventBusNamesEnum } from './types'
 
+const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
+
 export function EventBus<E>(name: EventBusNamesEnum) {
     if (window.ASMA_EVENT_BUS?.[name]) {
         return window.ASMA_EVENT_BUS[name] as {
@@ -27,9 +29,7 @@ export function EventBus<E>(name: EventBusNamesEnum) {
             return
         }
 
-        ;(Object.keys(subscriber) as unknown as (keyof typeof subscriber)[]).forEach((key) =>
-            subscriber[key]?.(storage[event]),
-        )
+        getKeys(subscriber).forEach((key) => subscriber[key]?.(storage[event]))
     }
 
     function register<Key extends keyof E>(event: Key, callback: (val: E[Key]) => void) {
@@ -59,9 +59,16 @@ export function EventBus<E>(name: EventBusNamesEnum) {
     function getNextId(): number {
         return nextId++
     }
-
-    return {
+    const fns = {
         dispatch,
         register,
     }
+
+    if (!window.ASMA_EVENT_BUS) {
+        window.ASMA_EVENT_BUS = {}
+    }
+
+    window.ASMA_EVENT_BUS[name] = fns
+
+    return fns
 }
