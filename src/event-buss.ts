@@ -1,4 +1,20 @@
-import type { EventBusNamesEnum } from './types'
+type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'ao-app-directory' | 'app-directory' | 'app-chat'
+type fn = <T>(arg: T) => void
+
+interface Registry {
+    unregister: fn
+}
+
+declare global {
+    interface Window {
+        ASMA_EVENT_BUS?: {
+            [key in EventBusNamesEnum]?: {
+                dispatch: (event: any, arg: any) => void
+                register: (event: any, callback: (arg: any) => void) => Registry
+            }
+        }
+    }
+}
 
 const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 

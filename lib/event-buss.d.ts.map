@@ -1,1 +1,1 @@
-{"version":3,"file":"event-buss.d.ts","sourceRoot":"","sources":["../src/event-buss.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,SAAS,CAAA;AAEhD,wBAAgB,QAAQ,CAAC,CAAC,EAAE,IAAI,EAAE,iBAAiB;gEAkBkB,IAAI;iFAcS,IAAI;;;EAgCrF"}
+{"version":3,"file":"event-buss.d.ts","sourceRoot":"","sources":["../src/event-buss.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,SAAS,CAAA;AAIhD,wBAAgB,QAAQ,CAAC,CAAC,EAAE,IAAI,EAAE,iBAAiB;gEAkBkB,IAAI;iFAYS,IAAI;;;EAuCrF"}
