@@ -1,4 +1,10 @@
-type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'ao-app-directory' | 'app-directory' | 'app-chat'
+type EventBusNamesEnum =
+    | 'app-artifact'
+    | 'app-calendar'
+    | 'ao-app-directory'
+    | 'app-directory'
+    | 'app-chat'
+    | 'app-consents'
 type fn = <T>(arg: T) => void
 
 interface Registry {
