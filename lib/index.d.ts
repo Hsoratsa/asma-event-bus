@@ -1,5 +1,6 @@
 import type { IArtifactEventBus } from './definitions/artifact.types';
 import type { IChatEventBus } from './definitions/chat.types';
+import type { IConsentsEventBus } from './definitions/consents.types';
 import type { IDirectoryEventBus } from './definitions/directory.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
@@ -18,6 +19,12 @@ export declare const artifactEventBuss: {
 export declare const directoryEventBuss: {
     dispatch: <Key extends keyof IDirectoryEventBus>(event: Key, arg: IDirectoryEventBus[Key]) => void;
     register: <Key_1 extends keyof IDirectoryEventBus>(event: Key_1, callback: (val: IDirectoryEventBus[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
+export declare const consentsEventBuss: {
+    dispatch: <Key extends "related_entitities">(event: Key, arg: IConsentsEventBus[Key]) => void;
+    register: <Key_1 extends "related_entitities">(event: Key_1, callback: (val: IConsentsEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };

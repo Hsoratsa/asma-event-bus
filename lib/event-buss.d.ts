@@ -1,4 +1,4 @@
-declare type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'ao-app-directory' | 'app-directory' | 'app-chat';
+declare type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'ao-app-directory' | 'app-directory' | 'app-chat' | 'app-consents';
 declare type fn = <T>(arg: T) => void;
 interface Registry {
     unregister: fn;
