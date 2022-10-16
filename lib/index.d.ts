@@ -2,6 +2,7 @@ import type { IArtifactEventBus } from './definitions/artifact.types';
 import type { IChatEventBus } from './definitions/chat.types';
 import type { IConsentsEventBus } from './definitions/consents.types';
 import type { IDirectoryEventBus } from './definitions/directory.types';
+import type { IDemoAsmaEventBus } from './definitions/someTest.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
 export declare const chatEventBuss: {
@@ -23,8 +24,14 @@ export declare const directoryEventBuss: {
     };
 };
 export declare const consentsEventBuss: {
-    dispatch: <Key extends "related_entitities">(event: Key, arg: IConsentsEventBus[Key]) => void;
-    register: <Key_1 extends "related_entitities">(event: Key_1, callback: (val: IConsentsEventBus[Key_1]) => void) => {
+    dispatch: <Key extends keyof IConsentsEventBus>(event: Key, arg: IConsentsEventBus[Key]) => void;
+    register: <Key_1 extends keyof IConsentsEventBus>(event: Key_1, callback: (val: IConsentsEventBus[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
+export declare const demoAsmaEventBuss: {
+    dispatch: <Key extends keyof IDemoAsmaEventBus>(event: Key, arg: IDemoAsmaEventBus[Key]) => void;
+    register: <Key_1 extends keyof IDemoAsmaEventBus>(event: Key_1, callback: (val: IDemoAsmaEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
