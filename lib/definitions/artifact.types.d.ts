@@ -10,6 +10,7 @@ export interface IArtifactEventBus {
         id: string;
         name: number;
     };
+    moderator_artifact_basic_data: IModeratorArtifactBasicData[];
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
