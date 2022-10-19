@@ -15,6 +15,6 @@ export interface IArtifactEventBus {
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
     id: string;
-    name: string;
+    title: string;
 }
 //# sourceMappingURL=artifact.types.d.ts.map
