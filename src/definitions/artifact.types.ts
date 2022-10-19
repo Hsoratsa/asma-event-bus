@@ -1,3 +1,5 @@
+import type { ArtifactPresenterTypes } from '../interfaces/directory.interfaces'
+
 export interface IOnSelectDocument {
     id: string
     name: string
@@ -7,4 +9,11 @@ export interface IOnSelectDocument {
 export interface IArtifactEventBus {
     on_select_documents: IOnSelectDocument[]
     some_test_event: { id: string; name: number }
+}
+
+export interface IModeratorArtifactBasicData {
+    type: ArtifactPresenterTypes
+    id: string
+    name: string
+    path: string
 }

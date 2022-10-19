@@ -1,1 +1,1 @@
-{"version":3,"file":"directory.interfaces.d.ts","sourceRoot":"","sources":["../../src/interfaces/directory.interfaces.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,EAAE,EAAE,MAAM,CAAA;IACV,IAAI,EAAE,MAAM,CAAA;CACf"}
+{"version":3,"file":"directory.interfaces.d.ts","sourceRoot":"","sources":["../../src/interfaces/directory.interfaces.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,EAAE,EAAE,MAAM,CAAA;IACV,IAAI,EAAE,MAAM,CAAA;CACf;AAED,oBAAY,sBAAsB;IAC9B,GAAG,QAAQ;IACX,aAAa,SAAS;IACtB,eAAe,SAAS;CAC3B"}

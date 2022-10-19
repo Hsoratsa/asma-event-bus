@@ -1,3 +1,4 @@
+import type { ArtifactPresenterTypes } from '../interfaces/directory.interfaces';
 export interface IOnSelectDocument {
     id: string;
     name: string;
@@ -9,5 +10,11 @@ export interface IArtifactEventBus {
         id: string;
         name: number;
     };
+}
+export interface IModeratorArtifactBasicData {
+    type: ArtifactPresenterTypes;
+    id: string;
+    name: string;
+    path: string;
 }
 //# sourceMappingURL=artifact.types.d.ts.map
