@@ -16,6 +16,5 @@ export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
     id: string;
     name: string;
-    path: string;
 }
 //# sourceMappingURL=artifact.types.d.ts.map

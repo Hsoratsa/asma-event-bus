@@ -16,5 +16,4 @@ export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes
     id: string
     name: string
-    path: string
 }
