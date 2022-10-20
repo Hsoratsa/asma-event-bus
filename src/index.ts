@@ -13,6 +13,7 @@ export const chatEventBuss = EventBus<IChatEventBus>('app-chat')
 
 export const artifactEventBuss = EventBus<IArtifactEventBus>('app-artifact')
 export const calendarEventBuss = EventBus<ICalendarEventBus>('app-calendar')
+export const tasksEventBuss = EventBus<ICalendarEventBus>('app-tasks')
 
 export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
 

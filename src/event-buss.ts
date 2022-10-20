@@ -1,6 +1,7 @@
 type EventBusNamesEnum =
     | 'app-artifact'
     | 'app-calendar'
+    | 'app-tasks'
     | 'ao-app-directory'
     | 'app-directory'
     | 'app-chat'
