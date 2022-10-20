@@ -15,7 +15,7 @@ declare global {
     interface Window {
         ASMA_EVENT_BUS?: {
             [key in EventBusNamesEnum]?: {
-                dispatch: (event: any, arg: any) => void
+                dispatch: (event: any, arg: any, shouldPersist?: boolean) => void
                 register: (event: any, callback: (arg: any) => void) => Registry
             }
         }
@@ -42,7 +42,7 @@ export function EventBus<E>(name: EventBusNamesEnum) {
 
     let nextId = 0
 
-    function dispatch<Key extends keyof E>(event: Key, arg: E[Key]): void {
+    function dispatch<Key extends keyof E>(event: Key, arg: E[Key], shouldPersist = true): void {
         storage[event] = arg
 
         const subscriber: Callable = subscribers[event]
@@ -52,6 +52,10 @@ export function EventBus<E>(name: EventBusNamesEnum) {
         }
 
         getKeys(subscriber).forEach((key) => subscriber[key]?.(storage[event]))
+
+        if (!shouldPersist) {
+            delete storage[event]
+        }
     }
 
     function register<Key extends keyof E>(event: Key, callback: (val: E[Key]) => void) {
