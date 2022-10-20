@@ -11,6 +11,8 @@ export interface IArtifactEventBus {
         name: number;
     };
     moderator_artifact_basic_data: IModeratorArtifactBasicData[];
+    on_open_plans: {};
+    on_open_research: {};
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
