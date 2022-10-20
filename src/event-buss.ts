@@ -45,13 +45,11 @@ export function EventBus<E>(name: EventBusNamesEnum) {
     function dispatch<Key extends keyof E>(event: Key, arg: E[Key], shouldPersist = true): void {
         storage[event] = arg
 
-        const subscriber: Callable = subscribers[event]
+        const subscriber: Callable | undefined = subscribers[event]
 
-        if (subscriber === undefined) {
-            return
+        if (subscriber) {
+            getKeys(subscriber).forEach((key) => subscriber[key]?.(storage[event]))
         }
-
-        getKeys(subscriber).forEach((key) => subscriber[key]?.(storage[event]))
 
         if (!shouldPersist) {
             delete storage[event]
