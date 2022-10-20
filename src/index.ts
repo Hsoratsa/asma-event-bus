@@ -4,6 +4,7 @@ import type { IChatEventBus } from './definitions/chat.types'
 import type { IConsentsEventBus } from './definitions/consents.types'
 import type { IDirectoryEventBus } from './definitions/directory.types'
 import type { IDemoAsmaEventBus } from './definitions/someTest.types'
+import type { ITasksEventBus } from './definitions/tasks.types'
 import { EventBus } from './event-buss'
 
 export * from './definitions/artifact.types'
@@ -13,7 +14,7 @@ export const chatEventBuss = EventBus<IChatEventBus>('app-chat')
 
 export const artifactEventBuss = EventBus<IArtifactEventBus>('app-artifact')
 export const calendarEventBuss = EventBus<ICalendarEventBus>('app-calendar')
-export const tasksEventBuss = EventBus<ICalendarEventBus>('app-tasks')
+export const tasksEventBuss = EventBus<ITasksEventBus>('app-tasks')
 
 export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
 
