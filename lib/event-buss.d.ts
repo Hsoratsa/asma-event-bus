@@ -7,14 +7,14 @@ declare global {
     interface Window {
         ASMA_EVENT_BUS?: {
             [key in EventBusNamesEnum]?: {
-                dispatch: (event: any, arg: any) => void;
+                dispatch: (event: any, arg: any, shouldPersist?: boolean) => void;
                 register: (event: any, callback: (arg: any) => void) => Registry;
             };
         };
     }
 }
 export declare function EventBus<E>(name: EventBusNamesEnum): {
-    dispatch: <Key extends keyof E>(event: Key, arg: E[Key]) => void;
+    dispatch: <Key extends keyof E>(event: Key, arg: E[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends keyof E>(event: Key_1, callback: (val: E[Key_1]) => void) => {
         unregister: () => void;
     };
