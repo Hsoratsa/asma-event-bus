@@ -1,4 +1,4 @@
-import type { ArtifactPresenterTypes } from '../interfaces/directory.interfaces'
+import type { ArtifactPresenterTypes } from 'asma-types/lib'
 
 export interface IOnSelectDocument {
     id: string

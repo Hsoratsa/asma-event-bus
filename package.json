@@ -18,5 +18,7 @@
     "devDependencies": {
         "typescript": "^4.7.4"
     },
-    "dependencies": {}
+    "dependencies": {
+        "asma-types": "^1.1.18"
+    }
 }
