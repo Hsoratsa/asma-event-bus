@@ -1,4 +1,4 @@
-import type { ArtifactPresenterTypes } from 'asma-types/lib'
+import type { IModeratorArtifactBasicData } from '../interfaces/artifact.interfaces'
 
 export interface IOnSelectDocument {
     id: string
@@ -13,10 +13,4 @@ export interface IArtifactEventBus {
     on_open_plans: {}
     on_open_research: {}
     question_id: string
-}
-
-export interface IModeratorArtifactBasicData {
-    type: ArtifactPresenterTypes
-    id: string
-    title: string
 }
