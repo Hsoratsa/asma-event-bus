@@ -12,6 +12,7 @@ export interface IArtifactEventBus {
     moderator_artifact_basic_data: IModeratorArtifactBasicData[]
     on_open_plans: {}
     on_open_research: {}
+    question_id: string
 }
 
 export interface IModeratorArtifactBasicData {
