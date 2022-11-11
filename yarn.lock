@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-asma-types@^1.1.18:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/asma-types/-/asma-types-1.1.18.tgz#1bdba38afa6a8a831cd99b1c8328fb73f402bb65"
-  integrity sha512-ovWivxIKc1K3ke8hTnjPOO10YR9G6s2uh0gitK+bdk0jsf4pQVjo0c3vxViEdmOUm7OHym+AFqtoqyRrWbDnWw==
+asma-types@^1.1.20:
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/asma-types/-/asma-types-1.1.20.tgz#34961bc3cf3b1b576ece6939fc5417abbf0d0f2c"
+  integrity sha512-JIBuEzIcd2zbAgCriWoG9wzjHDmufWiiTEaSvvW+kMdhLTLHd1xo8f8m3NzOfJK81LSamxfqLLgKTFUT2w98OQ==
 
 typescript@^4.7.4:
   version "4.8.3"
