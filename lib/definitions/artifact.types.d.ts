@@ -1,4 +1,4 @@
-import type { IModeratorArtifactBasicData, IQnrViewBasicData } from '../interfaces/artifact.interfaces';
+import type { IModeratorArtifactBasicData } from '../interfaces/artifact.interfaces';
 export interface IOnSelectDocument {
     id: string;
     name: string;
@@ -13,7 +13,6 @@ export interface IArtifactEventBus {
     moderator_artifact_basic_data: IModeratorArtifactBasicData[];
     on_open_plans: {};
     on_open_research: {};
-    on_open_qnr_view: IQnrViewBasicData;
     question_id: string;
 }
 //# sourceMappingURL=artifact.types.d.ts.map
