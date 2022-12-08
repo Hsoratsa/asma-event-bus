@@ -8,4 +8,9 @@ export interface IDirectoryEventBus {
     selected_patients_soknad_ids: string[]
 
     patients_basic_data: IPatientBasicData[]
+
+    users_credentials: {
+        journal_user_id: string,
+        brukerBrukerNavn: string,
+    }
 }
