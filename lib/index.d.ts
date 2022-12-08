@@ -8,8 +8,8 @@ import type { ITasksEventBus } from './definitions/tasks.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
 export declare const chatEventBuss: {
-    dispatch: <Key extends "on_select_document">(event: Key, arg: IChatEventBus[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends "on_select_document">(event: Key_1, callback: (val: IChatEventBus[Key_1]) => void) => {
+    dispatch: <Key extends keyof IChatEventBus>(event: Key, arg: IChatEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends keyof IChatEventBus>(event: Key_1, callback: (val: IChatEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
