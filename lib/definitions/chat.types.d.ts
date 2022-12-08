@@ -12,5 +12,6 @@ export interface ISelectedChatDocument {
 export interface IChatEventBus {
     on_select_document: ISelectedTicket;
     on_select_chat_document: ISelectedChatDocument;
+    test: string;
 }
 //# sourceMappingURL=chat.types.d.ts.map
