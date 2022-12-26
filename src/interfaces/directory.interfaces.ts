@@ -5,3 +5,8 @@ export interface IPatientBasicData {
 export interface IPatientBasicDataWithActno extends IPatientBasicData {
     actno: string
 }
+
+export interface IPatientIDs {
+    id: string
+    actno: string
+}
