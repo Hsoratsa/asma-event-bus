@@ -1,4 +1,9 @@
-import type { IPatientBasicData, IPatientBasicDataWithActno, IPatientIDs } from '../interfaces/directory.interfaces'
+import type {
+    IPatientBasicData,
+    IPatientBasicDataWithActno,
+    IPatientIDs,
+    ISelectedUsers,
+} from '../interfaces/directory.interfaces'
 
 export interface IDirectoryEventBus {
     select_patients: string[]
@@ -17,4 +22,6 @@ export interface IDirectoryEventBus {
     patients_basic_data_with_actno: IPatientBasicDataWithActno[]
 
     selected_patients_ids: IPatientIDs[]
+
+    selected_users: ISelectedUsers[]
 }
