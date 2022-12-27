@@ -1,4 +1,10 @@
-import type { IPatientBasicData, IPatientBasicDataWithActno, IPatientIDs, ISelectedUsers } from '../interfaces/directory.interfaces';
+import type {
+    IPatientBasicData,
+    IPatientBasicDataWithActno,
+    IPatientIDs,
+    ISelectedUsers,
+} from '../interfaces/directory.interfaces'
+
 export interface IDirectoryEventBus {
     select_patients: string[];
     select_patient: string;
@@ -12,4 +18,5 @@ export interface IDirectoryEventBus {
     selected_patients_ids: IPatientIDs[];
     selected_users: ISelectedUsers[];
 }
-//# sourceMappingURL=directory.types.d.ts.map
+
+//# sourceMappingURL=directory.types.d.ts.mapœ
