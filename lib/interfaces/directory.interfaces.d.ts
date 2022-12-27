@@ -9,18 +9,8 @@ export interface IPatientIDs {
     id: string;
     actno: string;
 }
-interface UserActivity {
+export interface ISelectedUsers {
     id: string;
-    name: string;
-    description: string;
-    corespondence_terminated: boolean;
-    start_date: string;
+    soknad_id?: string;
 }
-export interface ISelectedUsers extends IPatientBasicData {
-    national_id: string;
-    mobile_phone: string | null;
-    activities: UserActivity[];
-    recipient_relation_ids: string[];
-}
-export {};
 //# sourceMappingURL=directory.interfaces.d.ts.map

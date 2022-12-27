@@ -12,17 +12,9 @@ export interface IPatientIDs {
     actno: string
 }
 
-interface UserActivity {
-    id: string,
-    name: string,
-    description: string,
-    corespondence_terminated: boolean,
-    start_date: string,
+
+export interface ISelectedUsers {
+    id: string
+    soknad_id?: string
 }
 
-export interface ISelectedUsers extends IPatientBasicData {
-    national_id: string,
-    mobile_phone: string | null,
-    activities: UserActivity[]
-    recipient_relation_ids: string[]
-}

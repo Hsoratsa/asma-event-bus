@@ -1,8 +1,7 @@
 import type {
     IPatientBasicData,
     IPatientBasicDataWithActno,
-    IPatientIDs,
-    ISelectedUsers,
+    IPatientIDs, ISelectedUsers,
 } from '../interfaces/directory.interfaces'
 
 export interface IDirectoryEventBus {
