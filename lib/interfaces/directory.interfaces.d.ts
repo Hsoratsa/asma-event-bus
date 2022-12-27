@@ -11,6 +11,6 @@ export interface IPatientIDs {
 }
 export interface ISelectedUsers {
     id: string;
-    soknad_id: string;
+    soknad_id?: string;
 }
 //# sourceMappingURL=directory.interfaces.d.ts.map
