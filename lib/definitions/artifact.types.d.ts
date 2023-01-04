@@ -10,6 +10,7 @@ export interface IArtifactEventBus {
     moderator_artifact_basic_data: IModeratorArtifactBasicData[];
     on_open_plans: {};
     on_open_research: {};
+    qnr_custom_context?: string;
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
