@@ -3,7 +3,7 @@ import type { ICalendarEventBus } from './definitions/calendar.types'
 import type { IChatEventBus } from './definitions/chat.types'
 import type { IConsentsEventBus } from './definitions/consents.types'
 import type { IDirectoryEventBus } from './definitions/directory.types'
-import type { IDemoAsmaEventBus } from './definitions/someTest.types'
+import type { IMsOfficeEventBus } from './definitions/msoffice.types'
 import type { ITasksEventBus } from './definitions/tasks.types'
 import { EventBus } from './event-buss'
 
@@ -19,4 +19,4 @@ export const tasksEventBuss = EventBus<ITasksEventBus>('app-tasks')
 export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
 
 export const consentsEventBuss = EventBus<IConsentsEventBus>('app-consents')
-export const demoAsmaEventBuss = EventBus<IDemoAsmaEventBus>('app-consents')
+export const msofficeEnventBuss = EventBus<IMsOfficeEventBus>('app-office')

@@ -6,6 +6,7 @@ type EventBusNamesEnum =
     | 'app-directory'
     | 'app-chat'
     | 'app-consents'
+    | 'app-office'
 type fn = <T>(arg: T) => void
 
 interface Registry {
