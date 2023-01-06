@@ -3,7 +3,7 @@ import type { ICalendarEventBus } from './definitions/calendar.types';
 import type { IChatEventBus } from './definitions/chat.types';
 import type { IConsentsEventBus } from './definitions/consents.types';
 import type { IDirectoryEventBus } from './definitions/directory.types';
-import type { IDemoAsmaEventBus } from './definitions/someTest.types';
+import type { IMsOfficeEventBus } from './definitions/msoffice.types';
 import type { ITasksEventBus } from './definitions/tasks.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
@@ -43,9 +43,9 @@ export declare const consentsEventBuss: {
         unregister: () => void;
     };
 };
-export declare const demoAsmaEventBuss: {
-    dispatch: <Key extends keyof IDemoAsmaEventBus>(event: Key, arg: IDemoAsmaEventBus[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends keyof IDemoAsmaEventBus>(event: Key_1, callback: (val: IDemoAsmaEventBus[Key_1]) => void) => {
+export declare const msofficeEnventBuss: {
+    dispatch: <Key extends "login">(event: Key, arg: IMsOfficeEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "login">(event: Key_1, callback: (val: IMsOfficeEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
