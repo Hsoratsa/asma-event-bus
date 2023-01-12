@@ -1,6 +1,6 @@
 {
     "name": "asma-event-bus",
-    "version": "0.0.36",
+    "version": "0.0.37",
     "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
     "main": "lib/index.js",
     "types": "lib",
@@ -19,6 +19,6 @@
         "typescript": "^4.7.4"
     },
     "dependencies": {
-        "asma-types": "^1.1.22"
+        "asma-types": "^1.1.31"
     }
 }
