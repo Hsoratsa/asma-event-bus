@@ -1,6 +1,6 @@
 export interface IPatientBasicData {
     id: string
-    neme: string
+    name: string
 }
 
 export interface IPatientFullFata extends IPatientBasicData {
