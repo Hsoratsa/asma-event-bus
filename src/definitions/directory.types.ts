@@ -1,6 +1,6 @@
-import type { IPatientsFullFata } from '../interfaces/directory.interfaces'
+import type { IPatientFullFata } from '../interfaces/directory.interfaces'
 
 export interface IDirectoryEventBus {
-    users: IPatientsFullFata[]
-    selected_users: IPatientsFullFata[]
+    users: IPatientFullFata[]
+    selected_users: IPatientFullFata[]
 }

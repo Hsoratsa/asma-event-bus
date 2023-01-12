@@ -7,7 +7,3 @@ export interface IPatientFullFata extends IPatientBasicData {
     actno: string
     soknad_ids: string[]
 }
-
-export interface IPatientsFullFata {
-    patients: IPatientFullFata[]
-}
