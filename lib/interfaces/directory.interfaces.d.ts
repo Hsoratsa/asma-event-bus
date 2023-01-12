@@ -1,16 +1,11 @@
 export interface IPatientBasicData {
     id: string;
-    name: string;
 }
-export interface IPatientBasicDataWithActno extends IPatientBasicData {
+export interface IPatientFullFata extends IPatientBasicData {
     actno: string;
+    soknad_ids: string[];
 }
-export interface IPatientIDs {
-    id: string;
-    actno: string;
-}
-export interface ISelectedUsers {
-    id: string;
-    soknad_id?: string;
+export interface IPatientsFullFata {
+    patients: IPatientFullFata[];
 }
 //# sourceMappingURL=directory.interfaces.d.ts.map
