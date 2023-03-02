@@ -9,9 +9,13 @@ export interface ISelectedChatDocument {
         extension: string;
     };
 }
+export interface IOpenDocumentChatPopUp {
+    state: boolean;
+}
 export interface IChatEventBus {
     on_select_document: ISelectedTicket;
     on_select_chat_document: ISelectedChatDocument;
+    on_document_chat_popup: IOpenDocumentChatPopUp;
     test: string;
 }
 //# sourceMappingURL=chat.types.d.ts.map
