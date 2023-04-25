@@ -2,6 +2,9 @@ export interface IPatientBasicData {
     id: string
     name: string
 }
+export interface IUsersForOrders extends IPatientBasicData {
+    soknad_id: string
+}
 
 export interface IPatientFullFata extends IPatientBasicData {
     actno: string
