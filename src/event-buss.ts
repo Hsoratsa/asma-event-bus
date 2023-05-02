@@ -9,6 +9,7 @@ type EventBusNamesEnum =
     | 'app-office'
     | 'auth-bindings'
     | 'asma-theme'
+    | 'app-notification'
 type fn = <T>(arg: T) => void
 
 interface Registry {
