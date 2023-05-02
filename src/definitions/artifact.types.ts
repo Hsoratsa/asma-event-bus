@@ -24,6 +24,6 @@ export interface IModeratorArtifactBasicData {
 }
 
 export interface ISmsNotificationRecipient {
-    user_uuid: string
-    package_uuid: string
+    user_id: string
+    subject_id: string
 }
