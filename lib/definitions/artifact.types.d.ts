@@ -5,6 +5,10 @@ export interface IOnSelectDocument {
     url?: string;
     file?: File;
 }
+export interface IArtifactOnSelect {
+    id: string;
+    type: 'qnr' | 'doc' | 'parcel';
+}
 export interface IArtifactEventBus {
     on_select_documents: IOnSelectDocument[];
     moderator_artifact_basic_data: IModeratorArtifactBasicData[];
@@ -15,17 +19,11 @@ export interface IArtifactEventBus {
     /**
      * @use in all-qnrs widget
      */
-    on_send_artifacts_to_cart: {
-        id: string;
-        type: 'qnr' | 'doc' | 'parcel';
-    }[];
+    on_send_artifacts_to_cart: IArtifactOnSelect[];
     /**
      * @use in orders, all-qnrs widgets
      */
-    select_artifacts: {
-        id: string;
-        type: 'qnr' | 'doc' | 'parcel';
-    }[];
+    select_artifacts: IArtifactOnSelect[];
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
