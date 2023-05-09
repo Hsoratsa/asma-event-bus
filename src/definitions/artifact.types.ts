@@ -6,6 +6,10 @@ export interface IOnSelectDocument {
     url?: string
     file?: File
 }
+export interface IArtifactOnSelect {
+    id: string
+    type: 'qnr' | 'doc' | 'parcel'
+}
 
 export interface IArtifactEventBus {
     on_select_documents: IOnSelectDocument[]
@@ -14,7 +18,14 @@ export interface IArtifactEventBus {
     on_open_research: {}
     qnr_custom_context?: string
     sms_notification_recipients: ISmsNotificationRecipient[]
-    on_send_artifacts_to_cart: { id: string; type: 'qnr' | 'doc' | 'parcel' }[]
+    /**
+     * @use in all-qnrs widget
+     */
+    on_send_artifacts_to_cart: IArtifactOnSelect[]
+    /**
+     * @use in orders, all-qnrs widgets
+     */
+    select_artifacts: IArtifactOnSelect[]
 }
 
 export interface IModeratorArtifactBasicData {

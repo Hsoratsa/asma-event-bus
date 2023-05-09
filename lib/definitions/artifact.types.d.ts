@@ -12,7 +12,17 @@ export interface IArtifactEventBus {
     on_open_research: {};
     qnr_custom_context?: string;
     sms_notification_recipients: ISmsNotificationRecipient[];
+    /**
+     * @use in all-qnrs widget
+     */
     on_send_artifacts_to_cart: {
+        id: string;
+        type: 'qnr' | 'doc' | 'parcel';
+    }[];
+    /**
+     * @use in orders, all-qnrs widgets
+     */
+    select_artifacts: {
         id: string;
         type: 'qnr' | 'doc' | 'parcel';
     }[];
