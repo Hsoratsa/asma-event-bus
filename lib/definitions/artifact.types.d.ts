@@ -12,6 +12,10 @@ export interface IArtifactEventBus {
     on_open_research: {};
     qnr_custom_context?: string;
     sms_notification_recipients: ISmsNotificationRecipient[];
+    on_send_artifacts_to_cart: {
+        id: string;
+        type: 'qnr' | 'doc' | 'parcel';
+    }[];
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
