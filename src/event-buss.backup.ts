@@ -38,7 +38,11 @@ export function EventBus<E>(name: EventBusNamesEnum) {
     }
 
     interface Callable {
-        [key: number]: (val: any) => void
+        [key: number]: {
+            callback: (val: any) => void
+            calls: number
+            flags?: { clean?: boolean }
+        }
     }
 
     const subscribers = {} as Record<keyof E, Callable>
@@ -47,33 +51,68 @@ export function EventBus<E>(name: EventBusNamesEnum) {
 
     let nextId = 0
 
-    function dispatch<Key extends keyof E>(event: Key, arg: E[Key], shouldPersist = true): void {
+    /**
+     *
+     * @param event
+     * @param arg
+     * @param shouldPersist - default true
+     */
+    function dispatch<Key extends keyof E & string>(event: Key, arg: E[Key], shouldPersist = true): void {
         storage[event] = arg
 
         const subscriber: Callable | undefined = subscribers[event]
 
         if (subscriber) {
-            getKeys(subscriber).forEach((key) => subscriber[key]?.(storage[event]))
+            getKeys(subscriber).forEach((key) => {
+                const subscriber_by_key = subscriber[key]
+
+                if (subscriber_by_key) {
+                    subscriber_by_key.callback(storage[event])
+
+                    subscriber_by_key.calls++
+
+                    cleanAfterFirstCall(event, key)
+                }
+            })
         }
 
         if (!shouldPersist) {
             delete storage[event]
         }
     }
+    function cleanAfterFirstCall(event: keyof E & string, id: number) {
+        if (subscribers[event][id]?.flags?.clean) {
+            if (Object.keys(subscribers[event]).length > 1) {
+                console.warn(
+                    `EventBus: ${name} - ${event} - clean flag is set to true - and more than one subscriber is registered, this will cause the event to be deleted after the first call and may cause unexpected behavior! Please check`,
+                )
+            }
+            // deepcode ignore DeleteOfNonProperty: <this is intended>
+            delete subscribers[event]?.[id]
 
-    function register<Key extends keyof E>(event: Key, callback: (val: E[Key]) => void) {
+            delete storage[event]
+        }
+    }
+    function register<Key extends keyof E & string>(
+        event: Key,
+        callback: (val: E[Key]) => void,
+        flags?: { clean: boolean },
+    ) {
         const id = getNextId()
 
         if (!subscribers[event]) {
             subscribers[event] = {}
         }
+        const subscriber = { callback, calls: 0, flags }
 
-        subscribers[event][id] = callback
-        
-        console.log('subscribers', subscribers)
+        subscribers[event][id] = subscriber
 
         if (storage[event]) {
             callback(storage[event])
+
+            subscriber.calls++
+
+            cleanAfterFirstCall(event, id)
         }
 
         return {
@@ -83,8 +122,6 @@ export function EventBus<E>(name: EventBusNamesEnum) {
 
                 if (Object.keys(subscribers[event] || {}).length === 0) {
                     delete subscribers[event]
-
-                    delete storage[event]
                 }
             },
         }

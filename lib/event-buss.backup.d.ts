@@ -14,10 +14,12 @@ declare global {
     }
 }
 export declare function EventBus<E>(name: EventBusNamesEnum): {
-    dispatch: <Key extends keyof E>(event: Key, arg: E[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends keyof E>(event: Key_1, callback: (val: E[Key_1]) => void) => {
+    dispatch: <Key extends keyof E & string>(event: Key, arg: E[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends keyof E & string>(event: Key_1, callback: (val: E[Key_1]) => void, flags?: {
+        clean: boolean;
+    }) => {
         unregister: () => void;
     };
 };
 export {};
-//# sourceMappingURL=event-buss.d.ts.map
+//# sourceMappingURL=event-buss.backup.d.ts.map
