@@ -1,6 +1,6 @@
 {
     "name": "asma-event-bus",
-    "version": "0.0.52",
+    "version": "0.0.53",
     "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
     "main": "lib/index.js",
     "types": "lib",
@@ -16,7 +16,7 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "typescript": "^4.7.4"
+        "typescript": "^5.0.4"
     },
     "dependencies": {
         "asma-types": "^1.1.31"
