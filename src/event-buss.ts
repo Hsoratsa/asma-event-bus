@@ -46,7 +46,10 @@ export function EventBus<E>(name: EventBusNamesEnum) {
     const storage = {} as E
 
     let nextId = 0
-
+    /**
+     *
+     * @param shouldPersist - default true
+     */
     function dispatch<Key extends keyof E>(event: Key, arg: E[Key], shouldPersist = true): void {
         storage[event] = arg
 
@@ -69,7 +72,7 @@ export function EventBus<E>(name: EventBusNamesEnum) {
         }
 
         subscribers[event][id] = callback
-        
+
         console.log('subscribers', subscribers)
 
         if (storage[event]) {
