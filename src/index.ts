@@ -1,3 +1,4 @@
+import type { IAoAppDirectoryEventBus } from './definitions/ao-app-directory.types'
 import type { IArtifactEventBus } from './definitions/artifact.types'
 import type { ICalendarEventBus } from './definitions/calendar.types'
 import type { IChatEventBus } from './definitions/chat.types'
@@ -17,6 +18,6 @@ export const calendarEventBuss = EventBus<ICalendarEventBus>('app-calendar')
 export const tasksEventBuss = EventBus<ITasksEventBus>('app-tasks')
 
 export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
-
+export const oaDirectoryEventBuss = EventBus<IAoAppDirectoryEventBus>('app-directory')
 export const consentsEventBuss = EventBus<IConsentsEventBus>('app-consents')
-export const msofficeEnventBuss = EventBus<IMsOfficeEventBus>('app-office')
+export const msOfficeEventBuss = EventBus<IMsOfficeEventBus>('app-office')

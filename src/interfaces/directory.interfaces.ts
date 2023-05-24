@@ -7,7 +7,7 @@ export interface IUsersForOrders extends IPatientBasicData {
     directory_uuid: string
 }
 
-export interface IPatientFullFata extends IPatientBasicData {
+export interface IPatientFullData extends IPatientBasicData {
     actno: string
     soknad_ids: string[]
 }

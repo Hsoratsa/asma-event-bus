@@ -1,3 +1,4 @@
+import type { IAoAppDirectoryEventBus } from './definitions/ao-app-directory.types';
 import type { IArtifactEventBus } from './definitions/artifact.types';
 import type { ICalendarEventBus } from './definitions/calendar.types';
 import type { IChatEventBus } from './definitions/chat.types';
@@ -37,13 +38,19 @@ export declare const directoryEventBuss: {
         unregister: () => void;
     };
 };
+export declare const oaDirectoryEventBuss: {
+    dispatch: <Key extends "selected_users">(event: Key, arg: IAoAppDirectoryEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "selected_users">(event: Key_1, callback: (val: IAoAppDirectoryEventBus[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
 export declare const consentsEventBuss: {
     dispatch: <Key extends keyof IConsentsEventBus>(event: Key, arg: IConsentsEventBus[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends keyof IConsentsEventBus>(event: Key_1, callback: (val: IConsentsEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
-export declare const msofficeEnventBuss: {
+export declare const msOfficeEventBuss: {
     dispatch: <Key extends "login">(event: Key, arg: IMsOfficeEventBus[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends "login">(event: Key_1, callback: (val: IMsOfficeEventBus[Key_1]) => void) => {
         unregister: () => void;
