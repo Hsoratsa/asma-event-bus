@@ -18,6 +18,6 @@ export const calendarEventBuss = EventBus<ICalendarEventBus>('app-calendar')
 export const tasksEventBuss = EventBus<ITasksEventBus>('app-tasks')
 
 export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
-export const oaDirectoryEventBuss = EventBus<IAoAppDirectoryEventBus>('app-directory')
+export const oaDirectoryEventBuss = EventBus<IAoAppDirectoryEventBus>('ao-app-directory')
 export const consentsEventBuss = EventBus<IConsentsEventBus>('app-consents')
 export const msOfficeEventBuss = EventBus<IMsOfficeEventBus>('app-office')
