@@ -5,15 +5,13 @@ interface Registry {
 }
 declare global {
     interface Window {
-        ASMA_EVENT_BUS?: {
-            [key in EventBusNamesEnum]?: {
-                dispatch: (event: any, arg: any, shouldPersist?: boolean) => void;
-                register: (event: any, callback: (arg: any) => void) => Registry;
-            };
-        };
+        ASMA_EVENT_BUS?: Record<string, {
+            dispatch: (event: any, arg: any, shouldPersist?: boolean) => void;
+            register: (event: any, callback: (arg: any) => void) => Registry;
+        }>;
     }
 }
-export declare function EventBus<E>(name: EventBusNamesEnum): {
+export declare function EventBus<E>(name: EventBusNamesEnum, local_idx?: number): {
     dispatch: <Key extends keyof E>(event: Key, arg: E[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends keyof E>(event: Key_1, callback: (val: E[Key_1]) => void) => {
         unregister: () => void;

@@ -18,20 +18,22 @@ interface Registry {
 
 declare global {
     interface Window {
-        ASMA_EVENT_BUS?: {
-            [key in EventBusNamesEnum]?: {
+        ASMA_EVENT_BUS?: Record<
+            string,
+            {
                 dispatch: (event: any, arg: any, shouldPersist?: boolean) => void
                 register: (event: any, callback: (arg: any) => void) => Registry
             }
-        }
+        >
     }
 }
 
 const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
-export function EventBus<E>(name: EventBusNamesEnum) {
-    if (window.ASMA_EVENT_BUS?.[name]) {
-        return window.ASMA_EVENT_BUS[name] as {
+export function EventBus<E>(name: EventBusNamesEnum, local_idx?: number) {
+    const name_idx = local_idx ? `${name}-${local_idx}` : name
+    if (window.ASMA_EVENT_BUS?.[name_idx]) {
+        return window.ASMA_EVENT_BUS[name_idx] as {
             dispatch: typeof dispatch
             register: typeof register
         }
@@ -105,7 +107,7 @@ export function EventBus<E>(name: EventBusNamesEnum) {
         window.ASMA_EVENT_BUS = {}
     }
 
-    window.ASMA_EVENT_BUS[name] = fns
+    window.ASMA_EVENT_BUS[name_idx] = fns
 
     return fns
 }

@@ -10,13 +10,13 @@ type EventBusNamesEnum =
     | 'auth-bindings'
     | 'asma-theme'
     | 'app-notification'
-type fn = <T>(arg: T) => void
+//type fn = <T>(arg: T) => void
 
-interface Registry {
+/* interface Registry {
     unregister: fn
-}
+} */
 
-declare global {
+/* declare global {
     interface Window {
         ASMA_EVENT_BUS?: {
             [key in EventBusNamesEnum]?: {
@@ -25,7 +25,7 @@ declare global {
             }
         }
     }
-}
+} */
 
 const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
