@@ -21,8 +21,8 @@ export declare const artifactEventBuss: {
     };
 };
 export declare const calendarEventBuss: {
-    dispatch: <Key extends "on_open_calendar">(event: Key, arg: ICalendarEventBus[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends "on_open_calendar">(event: Key_1, callback: (val: ICalendarEventBus[Key_1]) => void) => {
+    dispatch: <Key extends keyof ICalendarEventBus>(event: Key, arg: ICalendarEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends keyof ICalendarEventBus>(event: Key_1, callback: (val: ICalendarEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
