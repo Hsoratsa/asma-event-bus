@@ -1,1 +1,1 @@
-{"version":3,"file":"calendar.types.d.ts","sourceRoot":"","sources":["../../src/definitions/calendar.types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,gBAAgB,EAAE,EAAE,CAAA;IACpB,wBAAwB,EAAE;QAAE,aAAa,EAAE,MAAM,CAAA;KAAE,CAAA;CACtD"}
+{"version":3,"file":"calendar.types.d.ts","sourceRoot":"","sources":["../../src/definitions/calendar.types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,gBAAgB,EAAE,EAAE,CAAA;IACpB;;OAEG;IACH,wBAAwB,EAAE;QAAE,SAAS,EAAE,MAAM,CAAA;KAAE,CAAA;CAClD"}
