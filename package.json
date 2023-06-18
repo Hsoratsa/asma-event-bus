@@ -7,7 +7,8 @@
     "type": "module",
     "scripts": {
         "build": "npx tsc && npx tsc -p .",
-        "build:pub:patch": "yarn build && yarn publish --patch"
+        "build:pub:patch": "yarn build && yarn publish --patch",
+        "build:pub:min": "yarn build && yarn publish --minor"
     },
     "repository": {
         "type": "git",
