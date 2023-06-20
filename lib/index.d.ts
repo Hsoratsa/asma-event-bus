@@ -5,6 +5,7 @@ import type { IChatEventBus } from './definitions/chat.types';
 import type { IConsentsEventBus } from './definitions/consents.types';
 import type { IDirectoryEventBus } from './definitions/directory.types';
 import type { IMsOfficeEventBus } from './definitions/msoffice.types';
+import type { INotificationEventBus } from './definitions/notification.types';
 import type { ITasksEventBus } from './definitions/tasks.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
@@ -17,6 +18,12 @@ export declare const chatEventBuss: {
 export declare const artifactEventBuss: {
     dispatch: <Key extends keyof IArtifactEventBus>(event: Key, arg: IArtifactEventBus[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends keyof IArtifactEventBus>(event: Key_1, callback: (val: IArtifactEventBus[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
+export declare const notificationEventBuss: {
+    dispatch: <Key extends keyof INotificationEventBus>(event: Key, arg: INotificationEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends keyof INotificationEventBus>(event: Key_1, callback: (val: INotificationEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };
