@@ -75,8 +75,6 @@ export function EventBus<E>(name: EventBusNamesEnum, local_idx?: number) {
 
         subscribers[event][id] = callback
 
-        console.log('subscribers', subscribers)
-
         if (storage[event]) {
             callback(storage[event])
         }
