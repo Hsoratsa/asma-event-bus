@@ -6,4 +6,5 @@ export interface IDirectoryEventBus {
     request_for_users: {}
     request_for_selected_users: {}
     users_for_orders: IUsersForOrders[]
+    group_to_send: string
 }
