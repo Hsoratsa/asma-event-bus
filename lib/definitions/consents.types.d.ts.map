@@ -1,1 +1,1 @@
-{"version":3,"file":"consents.types.d.ts","sourceRoot":"","sources":["../../src/definitions/consents.types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,kBAAkB,EAAE,MAAM,EAAE,CAAA;IAC5B,cAAc,EAAE,MAAM,CAAA;CACzB"}
+{"version":3,"file":"consents.types.d.ts","sourceRoot":"","sources":["../../src/definitions/consents.types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAC9B,kBAAkB,EAAE,MAAM,EAAE,CAAA;IAC5B,cAAc,EAAE,MAAM,CAAA;IACtB,kCAAkC,EAAE,MAAM,CAAA;CAC7C"}

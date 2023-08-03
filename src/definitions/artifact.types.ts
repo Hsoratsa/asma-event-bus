@@ -26,12 +26,15 @@ export interface IArtifactEventBus {
      * @use in orders, all-qnrs widgets
      */
     select_artifacts: IArtifactOnSelect[]
+    navigate_to_qnr_template_editor: {
+        qnr_id?: string
+        is_anonymous?: boolean
+    }
 }
 
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes
     id: string
-    title: string
     patient_id: string
 }
 
