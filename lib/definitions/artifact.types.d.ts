@@ -28,6 +28,7 @@ export interface IArtifactEventBus {
         qnr_id?: string;
         is_anonymous?: boolean;
     };
+    template_id: number;
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
