@@ -9,6 +9,9 @@ export interface IArtifactOnSelect {
     id: string;
     type: 'qnr' | 'doc' | 'parcel';
 }
+export interface ISelectedDocument extends Pick<IOnSelectDocument, 'id' | 'file' | 'name'> {
+    url?: string;
+}
 export interface IArtifactEventBus {
     on_select_documents: IOnSelectDocument[];
     moderator_artifact_basic_data: IModeratorArtifactBasicData[];
@@ -24,6 +27,7 @@ export interface IArtifactEventBus {
      * @use in orders, all-qnrs widgets
      */
     select_artifacts: IArtifactOnSelect[];
+    selected_documents: ISelectedDocument[];
     navigate_to_qnr_template_editor: {
         qnr_id?: string;
         is_anonymous?: boolean;
