@@ -1,7 +1,7 @@
 export interface IAsmaOverrides {
-    'default-map-changed': (overrides: {
+    'default-map-changed': {
         name: string;
         entry: string;
-    }[]) => void;
+    }[];
 }
 //# sourceMappingURL=asmaOvverides.d.ts.map
