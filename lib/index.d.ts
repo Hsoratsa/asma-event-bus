@@ -65,8 +65,8 @@ export declare const msOfficeEventBuss: {
     };
 };
 export declare const asmaOverridesEventBus: {
-    dispatch: <Key extends "setDefaultMap">(event: Key, arg: IAsmaOverrides[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends "setDefaultMap">(event: Key_1, callback: (val: IAsmaOverrides[Key_1]) => void) => {
+    dispatch: <Key extends "default-map-changed">(event: Key, arg: IAsmaOverrides[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "default-map-changed">(event: Key_1, callback: (val: IAsmaOverrides[Key_1]) => void) => {
         unregister: () => void;
     };
 };
