@@ -10,6 +10,7 @@ type EventBusNamesEnum =
     | 'auth-bindings'
     | 'asma-theme'
     | 'app-notification'
+    | 'asma-overrides'
 type fn = <T>(arg: T) => void
 
 interface Registry {

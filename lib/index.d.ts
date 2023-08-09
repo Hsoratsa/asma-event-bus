@@ -63,4 +63,10 @@ export declare const msOfficeEventBuss: {
         unregister: () => void;
     };
 };
+export declare const asmaOverridesEventBus: {
+    dispatch: <Key extends "login">(event: Key, arg: IMsOfficeEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "login">(event: Key_1, callback: (val: IMsOfficeEventBus[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
 //# sourceMappingURL=index.d.ts.map
