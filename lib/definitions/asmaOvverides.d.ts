@@ -1,5 +1,5 @@
 export interface IAsmaOverrides {
-    'default-map-changed': (name: string, overrides: {
+    'default-map-changed': (overrides: {
         name: string;
         entry: string;
     }[]) => void;
