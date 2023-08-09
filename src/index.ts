@@ -1,5 +1,6 @@
 import type { IAoAppDirectoryEventBus } from './definitions/ao-app-directory.types'
 import type { IArtifactEventBus } from './definitions/artifact.types'
+import { IAsmaOverrides } from './definitions/asmaOvverides'
 import type { ICalendarEventBus } from './definitions/calendar.types'
 import type { IChatEventBus } from './definitions/chat.types'
 import type { IConsentsEventBus } from './definitions/consents.types'
@@ -24,4 +25,4 @@ export const directoryEventBuss = EventBus<IDirectoryEventBus>('app-directory')
 export const oaDirectoryEventBuss = EventBus<IAoAppDirectoryEventBus>('ao-app-directory')
 export const consentsEventBuss = EventBus<IConsentsEventBus>('app-consents')
 export const msOfficeEventBuss = EventBus<IMsOfficeEventBus>('app-office')
-export const asmaOverridesEventBus = EventBus<IMsOfficeEventBus>('asma-overrides')
+export const asmaOverridesEventBus = EventBus<IAsmaOverrides>('asma-overrides')

@@ -1,5 +1,6 @@
 import type { IAoAppDirectoryEventBus } from './definitions/ao-app-directory.types';
 import type { IArtifactEventBus } from './definitions/artifact.types';
+import { IAsmaOverrides } from './definitions/asmaOvverides';
 import type { ICalendarEventBus } from './definitions/calendar.types';
 import type { IChatEventBus } from './definitions/chat.types';
 import type { IConsentsEventBus } from './definitions/consents.types';
@@ -64,8 +65,8 @@ export declare const msOfficeEventBuss: {
     };
 };
 export declare const asmaOverridesEventBus: {
-    dispatch: <Key extends "login">(event: Key, arg: IMsOfficeEventBus[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends "login">(event: Key_1, callback: (val: IMsOfficeEventBus[Key_1]) => void) => {
+    dispatch: <Key extends "setDefaultMap">(event: Key, arg: IAsmaOverrides[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "setDefaultMap">(event: Key_1, callback: (val: IAsmaOverrides[Key_1]) => void) => {
         unregister: () => void;
     };
 };
