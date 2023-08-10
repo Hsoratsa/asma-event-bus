@@ -4,6 +4,7 @@ export interface IOnSelectDocument {
     name: string;
     url?: string;
     file?: File;
+    extension?: string;
 }
 export interface IArtifactOnSelect {
     id: string;
