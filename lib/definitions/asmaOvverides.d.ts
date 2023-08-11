@@ -3,5 +3,6 @@ export interface IAsmaOverrides {
         name: string;
         entry: string;
     }[];
+    'asma-overridden-map-changed': Record<string, string>;
 }
 //# sourceMappingURL=asmaOvverides.d.ts.map
