@@ -8,6 +8,7 @@ import type { IDirectoryEventBus } from './definitions/directory.types';
 import type { IMsOfficeEventBus } from './definitions/msoffice.types';
 import type { INotificationEventBus } from './definitions/notification.types';
 import type { ITasksEventBus } from './definitions/tasks.types';
+import type { INavigationEventBus } from './definitions/navigation.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
 export declare const chatEventBuss: {
@@ -67,6 +68,12 @@ export declare const msOfficeEventBuss: {
 export declare const asmaOverridesEventBus: {
     dispatch: <Key extends keyof IAsmaOverrides>(event: Key, arg: IAsmaOverrides[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends keyof IAsmaOverrides>(event: Key_1, callback: (val: IAsmaOverrides[Key_1]) => void) => {
+        unregister: () => void;
+    };
+};
+export declare const navigationEventBus: {
+    dispatch: <Key extends "on_navigation">(event: Key, arg: INavigationEventBus[Key], shouldPersist?: boolean) => void;
+    register: <Key_1 extends "on_navigation">(event: Key_1, callback: (val: INavigationEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };

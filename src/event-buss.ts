@@ -11,6 +11,7 @@ type EventBusNamesEnum =
     | 'asma-theme'
     | 'app-notification'
     | 'asma-overrides'
+    | 'app-navigation'
 type fn = <T>(arg: T) => void
 
 interface Registry {

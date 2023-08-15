@@ -3,4 +3,4 @@ export interface INavigationEventBus {
         path: string;
     };
 }
-//# sourceMappingURL=Navigation.types.d.ts.map
+//# sourceMappingURL=navigation.types.d.ts.map
