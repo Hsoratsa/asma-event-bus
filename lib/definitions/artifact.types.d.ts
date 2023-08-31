@@ -39,5 +39,6 @@ export interface IModeratorArtifactBasicData {
 export interface ISmsNotificationRecipient {
     user_id: string;
     subject_id: string;
+    sendSms?: boolean;
 }
 //# sourceMappingURL=artifact.types.d.ts.map

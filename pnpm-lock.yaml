@@ -1,0 +1,27 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  asma-types:
+    specifier: ^1.1.31
+    version: 1.1.31
+
+devDependencies:
+  typescript:
+    specifier: ^5.0.4
+    version: 5.1.6
+
+packages:
+
+  /asma-types@1.1.31:
+    resolution: {integrity: sha512-XDNDg/vw4rFDab8OSB70eWgahXibo0QdpsI2OIFlcg8z+QpWuwXc3gG+8fMbz+3/P97gv/CjrlMzLR83KROYKg==}
+    dev: false
+
+  /typescript@5.1.6:
+    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true

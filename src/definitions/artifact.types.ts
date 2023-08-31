@@ -12,8 +12,6 @@ export interface IArtifactOnSelect {
     type: 'qnr' | 'doc' | 'parcel'
 }
 
-
-
 export interface IArtifactEventBus {
     on_select_documents: IOnSelectDocument[]
     moderator_artifact_basic_data: IModeratorArtifactBasicData[]
@@ -46,4 +44,5 @@ export interface IModeratorArtifactBasicData {
 export interface ISmsNotificationRecipient {
     user_id: string
     subject_id: string
+    sendSms?: boolean
 }
