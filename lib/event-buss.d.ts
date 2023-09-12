@@ -1,4 +1,4 @@
-type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'app-tasks' | 'ao-app-directory' | 'app-directory' | 'app-chat' | 'app-consents' | 'app-office' | 'auth-bindings' | 'asma-theme' | 'app-notification' | 'asma-overrides' | 'app-navigation';
+type EventBusNamesEnum = 'app-artifact' | 'app-calendar' | 'app-tasks' | 'ao-app-directory' | 'app-directory' | 'app-chat' | 'app-consents' | 'app-office' | 'auth-bindings' | 'asma-theme' | 'app-notification' | 'asma-overrides' | 'app-navigation' | 'legacy-portal';
 type fn = <T>(arg: T) => void;
 interface Registry {
     unregister: fn;
