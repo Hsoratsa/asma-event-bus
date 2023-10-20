@@ -1,0 +1,1 @@
+{"version":3,"file":"shared.types.d.ts","sourceRoot":"","sources":["../../src/definitions/shared.types.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,eAAe;IAC5B,iBAAiB,EAAE;QACf,UAAU,EAAE,OAAO,CAAA;QACnB,OAAO,EAAE,MAAM,CAAA;QACf,QAAQ,CAAC,EAAE,QAAQ,CAAA;KACtB,CAAA;CACJ"}
