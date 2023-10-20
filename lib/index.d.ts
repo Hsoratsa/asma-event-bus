@@ -9,7 +9,6 @@ import type { IMsOfficeEventBus } from './definitions/msoffice.types';
 import type { INotificationEventBus } from './definitions/notification.types';
 import type { ITasksEventBus } from './definitions/tasks.types';
 import type { INavigationEventBus } from './definitions/navigation.types';
-import { ILegacyPortalEventBus } from './definitions/legacy-advoca.types';
 export * from './definitions/artifact.types';
 export * from './definitions/directory.types';
 export declare const chatEventBuss: {
@@ -75,12 +74,6 @@ export declare const asmaOverridesEventBus: {
 export declare const navigationEventBus: {
     dispatch: <Key extends "on_navigation">(event: Key, arg: INavigationEventBus[Key], shouldPersist?: boolean) => void;
     register: <Key_1 extends "on_navigation">(event: Key_1, callback: (val: INavigationEventBus[Key_1]) => void) => {
-        unregister: () => void;
-    };
-};
-export declare const legacyPortalEventBus: {
-    dispatch: <Key extends keyof ILegacyPortalEventBus>(event: Key, arg: ILegacyPortalEventBus[Key], shouldPersist?: boolean) => void;
-    register: <Key_1 extends keyof ILegacyPortalEventBus>(event: Key_1, callback: (val: ILegacyPortalEventBus[Key_1]) => void) => {
         unregister: () => void;
     };
 };

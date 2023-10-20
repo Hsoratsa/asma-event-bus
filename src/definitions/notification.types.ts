@@ -6,3 +6,11 @@ export interface INotificationEventBus {
 export interface ISmsData {
     content: string
 }
+
+export interface IPromptEventBus {
+    on_trigger_prompt: {
+        showPrompt: boolean
+        message: string
+        location?: Location
+    }
+}

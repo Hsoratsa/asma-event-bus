@@ -10,7 +10,6 @@ import type { INotificationEventBus } from './definitions/notification.types'
 import type { ITasksEventBus } from './definitions/tasks.types'
 import type { INavigationEventBus } from './definitions/navigation.types'
 import { EventBus } from './event-buss'
-import { ILegacyPortalEventBus } from './definitions/legacy-advoca.types'
 
 export * from './definitions/artifact.types'
 export * from './definitions/directory.types'
@@ -29,4 +28,3 @@ export const consentsEventBuss = EventBus<IConsentsEventBus>('app-consents')
 export const msOfficeEventBuss = EventBus<IMsOfficeEventBus>('app-office')
 export const asmaOverridesEventBus = EventBus<IAsmaOverrides>('asma-overrides')
 export const navigationEventBus = EventBus<INavigationEventBus>('app-navigation')
-export const legacyPortalEventBus = EventBus<ILegacyPortalEventBus>('legacy-portal')
