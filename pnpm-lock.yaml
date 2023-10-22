@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  asma-helpers:
+    specifier: ^0.19.20
+    version: 0.19.20
   asma-types:
     specifier: ^1.1.31
     version: 1.1.31
@@ -16,8 +19,39 @@ devDependencies:
 
 packages:
 
+  /asma-event-bus@0.6.6:
+    resolution: {integrity: sha512-vTWezrQ1ZeMOBfOapydp8Z6vs4dAZoTbmIx/0PQgNSEMiPiZdzDR24d8QiMPgYNOkO7VP/ESeRC4WAEm4X8cYg==}
+    dependencies:
+      asma-types: 1.1.31
+    dev: false
+
+  /asma-helpers@0.19.20:
+    resolution: {integrity: sha512-5aZ1rcKZe+mM4LCoMiMp37Cz5gRNx7Vqc2aZ7uPylJcHQTAVdrC52fJEfQ7ICkzAPduC5Ywc2AG7GpVc29j4KQ==}
+    dependencies:
+      asma-event-bus: 0.6.6
+      idb-keyval: 6.2.1
+      mobx: 6.10.2
+      mobx-state-tree: 5.2.0(mobx@6.10.2)
+    dev: false
+
   /asma-types@1.1.31:
     resolution: {integrity: sha512-XDNDg/vw4rFDab8OSB70eWgahXibo0QdpsI2OIFlcg8z+QpWuwXc3gG+8fMbz+3/P97gv/CjrlMzLR83KROYKg==}
+    dev: false
+
+  /idb-keyval@6.2.1:
+    resolution: {integrity: sha512-8Sb3veuYCyrZL+VBt9LJfZjLUPWVvqn8tG28VqYNFCo43KHcKuq+b4EiXGeuaLAQWL2YmyDgMp2aSpH9JHsEQg==}
+    dev: false
+
+  /mobx-state-tree@5.2.0(mobx@6.10.2):
+    resolution: {integrity: sha512-TAKfMHEF9F59iAcLbD1Y9D8Kand4NoYM1h8Yv3Ol5la9X0I7T4Y/mhVN/oK/bi3g0v7dYy9wsoni2T66zCohGQ==}
+    peerDependencies:
+      mobx: ^6.3.0
+    dependencies:
+      mobx: 6.10.2
+    dev: false
+
+  /mobx@6.10.2:
+    resolution: {integrity: sha512-B1UGC3ieK3boCjnMEcZSwxqRDMdzX65H/8zOHbuTY8ZhvrIjTUoLRR2TP2bPqIgYRfb3+dUigu8yMZufNjn0LQ==}
     dev: false
 
   /typescript@5.1.6:
