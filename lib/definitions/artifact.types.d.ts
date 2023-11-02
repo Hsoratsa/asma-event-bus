@@ -37,6 +37,7 @@ export interface IModeratorArtifactBasicData {
     patient_id: string;
 }
 export interface ISmsNotificationRecipient {
+    service?: string;
     user_id: string;
     subject_id: string;
     sendSms?: boolean;
