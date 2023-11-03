@@ -30,6 +30,7 @@ export interface IArtifactEventBus {
         is_anonymous?: boolean;
     };
     template_id: number;
+    anonymous_invitation: IAnonymousInvitation;
 }
 export interface IModeratorArtifactBasicData {
     type: ArtifactPresenterTypes;
@@ -41,5 +42,9 @@ export interface ISmsNotificationRecipient {
     user_id: string;
     subject_id: string;
     sendSms?: boolean;
+}
+export interface IAnonymousInvitation {
+    invitation_code: string;
+    invitation_url: string;
 }
 //# sourceMappingURL=artifact.types.d.ts.map
