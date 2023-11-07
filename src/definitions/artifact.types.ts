@@ -33,6 +33,7 @@ export interface IArtifactEventBus {
         is_anonymous?: boolean
     }
     template_id: number
+    qnr_template_id?: number
     sms_keyword_replacements: { key: string; value: string }[]
 }
 
